@@ -1,0 +1,14 @@
+body,td,th {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+}
+
+input.button_add {
+	background-image: url(../img/next.gif); /* 16px x 16px */
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: right;
+	cursor: pointer;
+	vertical-align: middle;
+	margin-right: 10px;
+}
