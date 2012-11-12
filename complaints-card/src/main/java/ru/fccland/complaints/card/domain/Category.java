@@ -1,6 +1,7 @@
 package ru.fccland.complaints.card.domain;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
@@ -10,6 +11,8 @@ import java.io.Serializable;
  * Time: 8:18
  * To change this template use File | Settings | File Templates.
  */
+
+@XmlRootElement(name="category")
 @Entity
 @Table(name="CMPL_CATEGORY")
 public class Category implements Serializable {
