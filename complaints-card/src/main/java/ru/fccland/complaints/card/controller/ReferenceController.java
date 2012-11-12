@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ru.fccland.complaints.card.service.CategoryService;
 import ru.fccland.complaints.card.service.DepartmentService;
 
-import javax.annotation.Resource;
 
 /**
  * Created with IntelliJ IDEA.
