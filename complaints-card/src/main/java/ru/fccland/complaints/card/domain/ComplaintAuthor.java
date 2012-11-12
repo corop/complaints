@@ -1,6 +1,7 @@
 package ru.fccland.complaints.card.domain;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
@@ -19,6 +20,7 @@ CREATE TABLE CMPL_COMPLAINT_AUTHOR
 )
  */
 
+@XmlRootElement(name="author")
 @Entity
 @Table(name="CMPL_COMPLAINT_AUTHOR")
 public class ComplaintAuthor implements Serializable {

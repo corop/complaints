@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.fccland.complaints.card.service.CategoryService;
+import ru.fccland.complaints.card.service.ComplaintAuthorService;
 import ru.fccland.complaints.card.service.DepartmentService;
 
 
@@ -27,6 +28,10 @@ public class ReferenceController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private ComplaintAuthorService complaintAuthorService;
+
 
     @RequestMapping(value = "/departments",
             method = RequestMethod.GET,
@@ -51,5 +56,18 @@ public class ReferenceController {
 
         return result;
     }
+
+    @RequestMapping(value = "/authors",
+            method = RequestMethod.GET,
+            headers="Accept=application/xml, application/json")
+    public @ResponseBody ComplaintAuthorList getComplaintAuthors() {
+        logger.debug("Provider has received request to get all Complaint authors types");
+
+        ComplaintAuthorList result = new ComplaintAuthorList();
+        result.setData(complaintAuthorService.list());
+
+        return result;
+    }
+
 
 }

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e13092-bb87-4f10-91b0-cb617b49fd45" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintAuthorList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/ComplaintAuthor.java" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/ComplaintAuthor.java" />
     </list>
     <ignored path="complaints-card.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,7 +94,18 @@
       <file leaf-file-name="ReferenceController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="48" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.8969298">
+            <state line="45" column="70" selection-start="1488" selection-end="1488" vertical-scroll-proportion="-0.08552632">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComplaintAuthorList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintAuthorList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="29" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,7 +116,7 @@
       <file leaf-file-name="ComplaintAuthor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/ComplaintAuthor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0">
+            <state line="22" column="28" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,7 +134,7 @@
       <file leaf-file-name="CategoryList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/CategoryList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="32" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
+            <state line="16" column="34" selection-start="374" selection-end="408" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,7 +154,7 @@
       <file leaf-file-name="Category.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/Category.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="30" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
+            <state line="14" column="32" selection-start="306" selection-end="338" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -154,18 +167,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="67" selection-start="2150" selection-end="2150" vertical-scroll-proportion="-32.727272">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -193,8 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/SWFComplaintsCard-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/context.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
@@ -209,6 +208,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/CategoryList.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintAuthorList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/ComplaintAuthor.java" />
       </list>
     </option>
   </component>
@@ -1110,7 +1111,11 @@
       <created>1352718620071</created>
       <updated>1352718620071</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="initial">
+      <created>1352721363258</created>
+      <updated>1352721363258</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1239,11 +1244,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/aop/TraceInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml">
       <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
         <state />
@@ -1316,32 +1316,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/CategoryList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="32" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/Department.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="34" selection-start="306" selection-end="340" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="30" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/ComplaintAuthor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1353,9 +1330,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/CategoryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="34" selection-start="374" selection-end="408" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="32" selection-start="306" selection-end="338" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/ComplaintAuthor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="28" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintAuthorList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="29" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="48" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.8969298">
+        <state line="45" column="70" selection-start="1488" selection-end="1488" vertical-scroll-proportion="-0.08552632">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
