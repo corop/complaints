@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ru.fccland.complaints.card.service.CategoryService;
 import ru.fccland.complaints.card.service.ComplaintAuthorService;
 import ru.fccland.complaints.card.service.DepartmentService;
+import ru.fccland.complaints.card.service.DocTypeService;
 
 
 /**
@@ -32,11 +33,15 @@ public class ReferenceController {
     @Autowired
     private ComplaintAuthorService complaintAuthorService;
 
+    @Autowired
+    private DocTypeService docTypeService;
 
     @RequestMapping(value = "/departments",
             method = RequestMethod.GET,
-            headers="Accept=application/xml, application/json")
-    public @ResponseBody DepartmentList getDepartments() {
+            headers = "Accept=application/xml, application/json")
+    public
+    @ResponseBody
+    DepartmentList getDepartments() {
         logger.debug("Provider has received request to get all departments");
 
         DepartmentList result = new DepartmentList();
@@ -47,8 +52,10 @@ public class ReferenceController {
 
     @RequestMapping(value = "/categories",
             method = RequestMethod.GET,
-            headers="Accept=application/xml, application/json")
-    public @ResponseBody CategoryList getCategories() {
+            headers = "Accept=application/xml, application/json")
+    public
+    @ResponseBody
+    CategoryList getCategories() {
         logger.debug("Provider has received request to get all categories");
 
         CategoryList result = new CategoryList();
@@ -59,12 +66,28 @@ public class ReferenceController {
 
     @RequestMapping(value = "/authors",
             method = RequestMethod.GET,
-            headers="Accept=application/xml, application/json")
-    public @ResponseBody ComplaintAuthorList getComplaintAuthors() {
+            headers = "Accept=application/xml, application/json")
+    public
+    @ResponseBody
+    ComplaintAuthorList getComplaintAuthors() {
         logger.debug("Provider has received request to get all Complaint authors types");
 
         ComplaintAuthorList result = new ComplaintAuthorList();
         result.setData(complaintAuthorService.list());
+
+        return result;
+    }
+
+    @RequestMapping(value = "/doctypes",
+            method = RequestMethod.GET,
+            headers = "Accept=application/xml, application/json")
+    public
+    @ResponseBody
+    DocTypeList getDocTypes() {
+        logger.debug("Provider has received request to get all document types");
+
+        DocTypeList result = new DocTypeList();
+        result.setData(docTypeService.list());
 
         return result;
     }

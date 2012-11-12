@@ -1,6 +1,7 @@
 package ru.fccland.complaints.card.domain;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
@@ -11,6 +12,7 @@ import java.io.Serializable;
  * To change this template use File | Settings | File Templates.
  */
 
+@XmlRootElement(name="doctype")
 @Entity
 @Table(name="CMPL_DOC_TYPE")
 public class DocType  implements Serializable {
