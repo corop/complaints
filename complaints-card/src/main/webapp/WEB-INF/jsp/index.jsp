@@ -55,7 +55,7 @@
 <body bgcolor="#F5F6F6">
 <h2>Подача жалоб </h2>
 <p>Поля отмеченные знаком <img src="img/attention.gif" width="16" height="16" alt="A!" />, обязательны для заполнения</p>
-<form id="form1" name="form1" method="post" action="">
+<form id="form1" name="form1" method="post" action="/addcomplaint">
     <fieldset>
         <legend>&nbsp;<strong>Жалоба</strong>&nbsp;</legend>
 
