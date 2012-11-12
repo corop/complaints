@@ -8,12 +8,15 @@
     <%@ page  session="true"  language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Подача жалобы</title>
-    <link href="css/complaints.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="js/jquery-ui-1.9.1/themes/base/jquery-ui.css" />
-    <script type="text/javascript" src="js/jquery-ui-1.9.1/jquery-1.8.2.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.9.1/ui/jquery.ui.core.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"></script>
-    <script type="text/javascript" src="js/jquery-ui-1.9.1/ui/jquery.ui.button.js"></script>
+
+    <link rel="stylesheet" type="text/css"  media="screen" href='<c:url value="/resources/css/complaints.css"/>'/>
+    <link rel="stylesheet" type="text/css"  media="screen" href='<c:url value="/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
+
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
+
     <script type="text/javascript">
         $(document).ready(function(){
             /* initial */
