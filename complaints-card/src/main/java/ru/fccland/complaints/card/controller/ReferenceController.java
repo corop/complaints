@@ -22,7 +22,7 @@ import ru.fccland.complaints.card.service.DocTypeService;
 @Controller
 @RequestMapping("/ref")
 public class ReferenceController {
-    protected static Logger logger = Logger.getLogger("ref-controller");
+    protected static Logger log = Logger.getLogger("ref-controller");
 
     @Autowired
     private DepartmentService departmentService;
@@ -42,7 +42,8 @@ public class ReferenceController {
     public
     @ResponseBody
     DepartmentList getDepartments() {
-        logger.debug("Provider has received request to get all departments");
+        if(log.isDebugEnabled())
+            log.debug("Provider has received request to get all departments");
 
         DepartmentList result = new DepartmentList();
         result.setData(departmentService.list());
@@ -56,7 +57,8 @@ public class ReferenceController {
     public
     @ResponseBody
     CategoryList getCategories() {
-        logger.debug("Provider has received request to get all categories");
+        if(log.isDebugEnabled())
+            log.debug("Provider has received request to get all categories");
 
         CategoryList result = new CategoryList();
         result.setData(categoryService.list());
@@ -70,7 +72,8 @@ public class ReferenceController {
     public
     @ResponseBody
     ComplaintAuthorList getComplaintAuthors() {
-        logger.debug("Provider has received request to get all Complaint authors types");
+        if(log.isDebugEnabled())
+            log.debug("Provider has received request to get all Complaint authors types");
 
         ComplaintAuthorList result = new ComplaintAuthorList();
         result.setData(complaintAuthorService.list());
@@ -84,7 +87,8 @@ public class ReferenceController {
     public
     @ResponseBody
     DocTypeList getDocTypes() {
-        logger.debug("Provider has received request to get all document types");
+        if(log.isDebugEnabled())
+            log.debug("Provider has received request to get all document types");
 
         DocTypeList result = new DocTypeList();
         result.setData(docTypeService.list());
