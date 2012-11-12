@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.AttachedFileDAO;
-import ru.fccland.complaints.card.form.AttachedFile;
+import ru.fccland.complaints.card.domain.AttachedFile;
 import ru.fccland.complaints.card.service.AttachedFileService;
 
 import java.util.List;

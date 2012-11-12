@@ -1,8 +1,8 @@
 package dao;
 
 import org.hibernate.Session;
-import ru.fccland.complaints.card.form.Category;
-import ru.fccland.complaints.card.form.Department;
+import ru.fccland.complaints.card.domain.Category;
+import ru.fccland.complaints.card.domain.Department;
 import ru.fccland.complaints.card.util.HibernateUtil;
 
 import java.util.List;
@@ -28,10 +28,12 @@ public class TestHibernateSession {
         session.save(category);
         category = new Category(null, "Представитель юридического лица" );
         session.save(category); */
-        List<Category> categories = session.createQuery("from Category").list();
+        List<Category> categories = session.createQuery("FROM Category").list();
         for (Category category : categories) {
             System.out.println("category = " + category);
         }
+
+        System.out.println("***********************************************");
 
         List<Department> departments = session.createQuery("from Department").list();
         for (Department department : departments) {

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.DocTypeDAO;
-import ru.fccland.complaints.card.form.DocType;
+import ru.fccland.complaints.card.domain.DocType;
 
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class DocTypeDAOImpl implements DocTypeDAO {
     @Transactional
     @Override
     public List<DocType> list() {
-        return sessionFactory.getCurrentSession().createQuery("from DocType").list();
+        return sessionFactory.getCurrentSession().createQuery("FROM DocType").list();
     }
 
     @Transactional

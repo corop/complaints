@@ -1,6 +1,6 @@
 package ru.fccland.complaints.card.dao;
 
-import ru.fccland.complaints.card.form.Department;
+import ru.fccland.complaints.card.domain.Department;
 
 import java.util.List;
 

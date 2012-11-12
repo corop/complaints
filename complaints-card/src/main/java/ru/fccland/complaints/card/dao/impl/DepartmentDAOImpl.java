@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.DepartmentDAO;
-import ru.fccland.complaints.card.form.Department;
+import ru.fccland.complaints.card.domain.Department;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
     @Transactional
     @Override
     public List<Department> list() {
-        return sessionFactory.getCurrentSession().createQuery("from Department").list();
+        return sessionFactory.getCurrentSession().createQuery("FROM Department").list();
     }
 
     @Transactional

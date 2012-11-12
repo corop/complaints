@@ -1,9 +1,7 @@
 package ru.fccland.complaints.card.dao;
 
-import ru.fccland.complaints.card.form.DocType;
+import ru.fccland.complaints.card.domain.DocType;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**

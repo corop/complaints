@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.ComplaintDAO;
-import ru.fccland.complaints.card.form.Complaint;
+import ru.fccland.complaints.card.domain.Complaint;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class ComplaintDAOImpl implements ComplaintDAO {
     @Transactional
     @Override
     public List<Complaint> list() {
-        return sessionFactory.getCurrentSession().createQuery("from Complaint").list();
+        return sessionFactory.getCurrentSession().createQuery("FROM Complaint").list();
     }
 
     @Transactional

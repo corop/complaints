@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.AttachedFileDAO;
-import ru.fccland.complaints.card.form.AttachedFile;
+import ru.fccland.complaints.card.domain.AttachedFile;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class AttachedFileDAOImpl implements AttachedFileDAO {
     @Transactional
     @Override
     public List<AttachedFile> list() {
-        return sessionFactory.getCurrentSession().createQuery("from AttachedFile").list();
+        return sessionFactory.getCurrentSession().createQuery("FROM AttachedFile").list();
     }
 
     @Transactional

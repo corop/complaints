@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.CategoryDAO;
-import ru.fccland.complaints.card.form.Category;
+import ru.fccland.complaints.card.domain.Category;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Transactional
     @Override
     public List<Category> list() {
-        return sessionFactory.getCurrentSession().createQuery("from Category").list();
+        return sessionFactory.getCurrentSession().createQuery("FROM Category").list();
     }
 
     @Transactional

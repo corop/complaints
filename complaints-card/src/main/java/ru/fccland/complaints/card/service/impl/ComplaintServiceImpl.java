@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.fccland.complaints.card.dao.ComplaintDAO;
-import ru.fccland.complaints.card.form.Complaint;
+import ru.fccland.complaints.card.domain.Complaint;
 import ru.fccland.complaints.card.service.ComplaintService;
 
 import java.util.List;

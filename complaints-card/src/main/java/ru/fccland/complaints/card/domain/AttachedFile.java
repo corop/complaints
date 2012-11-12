@@ -1,4 +1,4 @@
-package ru.fccland.complaints.card.form;
+package ru.fccland.complaints.card.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 package ru.fccland.complaints.card.service;
 
-import ru.fccland.complaints.card.form.DocType;
+import ru.fccland.complaints.card.domain.DocType;
 
 import java.util.List;
 

@@ -58,14 +58,26 @@
         </property>
     </bean>
 
+    <!-- Data Source Declaration -->
+    <bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="jdbcUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:FDGKO"/>
+        <property name="user" value="cmpl"/>
+        <property name="password" value="cmpl"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="maxStatements" value="0"/>
+        <property name="minPoolSize" value="5"/>
+    </bean>
+
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="DataSource" />
         <property name="configLocation">
             <value>classpath:hibernate.cfg.xml</value>
         </property>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
