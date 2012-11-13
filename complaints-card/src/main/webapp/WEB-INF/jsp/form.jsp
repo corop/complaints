@@ -1,19 +1,23 @@
 <%@ include file="/WEB-INF/jsp/includes.jsp" %>
 
+<c:url value="/cmplsend" var="sendUrl"/>
+<c:url value="/fileupload" var="uploadUrl"/>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <%@ page session="true" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Подача жалобы</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/resources/css/complaints.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/resources/css/form.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>
 
-    <script type="text/javascript" src="/resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>
-    <script type="text/javascript" src="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>
-    <script type="text/javascript" src="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>
-    <script type="text/javascript" src="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/css/complaints.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/css/form.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
+
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
 
     <script type='text/javascript'>
         $(document).ready(function () {
@@ -63,6 +67,7 @@
 </head>
 
 <body bgcolor="#F5F6F6">
+
 <table width="640" align="center">
     <tr>
         <td width="630">
@@ -75,7 +80,7 @@
     </td></tr>
     <tr><td>
         <form id="cmplform" name="cmplform" method="post" action="/sendcmpl">
-            <input type="hidden" name="session-id" id="session-id" value='${session-id}' />
+            <form:hidden path="session-id" value="${session-id}" />
             <fieldset>
                 <legend>&nbsp;<strong>Жалоба</strong>&nbsp;</legend>
 
@@ -117,7 +122,7 @@
                     </tr>
                     <tr id="firstname">
                         <td width="135" align="right" valign="middle">Имя: <img src="/resources/img/attention.gif" width="16" height="16" alt="A!" /></td>
-                        <td align="left" valign="middle" nowrap="nowrap" "><input type="text" name="firstname" id="firstname" required="required" /></td>
+                        <td align="left" valign="middle" nowrap="nowrap"><input type="text" name="firstname" id="firstname" required="required" /></td>
                     </tr>
                     <tr id="thirdname">
                         <td width="135" align="right" valign="middle">Отчество: <img src="/resources/img/attention.gif" width="16" height="16" alt="A!" /></td>
@@ -188,7 +193,7 @@
                         В этом случае обращение необходимо подписать цифровой подписью с помощью кнопки «Подписать и отправить».
                     </p>
                     <p>
-                        <input type="submit" name="addfile" id="addfile" value="Добавить"  class="button_add"  />
+                        <input type="submit" name="addfile" id="addfile" value="Добавить" />
                     </p>
                 </fieldset>
                 </p>

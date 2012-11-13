@@ -33,6 +33,17 @@
 
     <import resource="trace-context.xml"/>
 
+    <bean id="portletController" class=" ru.fccland.complaints.card.controller.PortletController">
+    </bean>
+
+    <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
+        <property name="portletModeMap">
+            <map>
+                <entry key="view" value-ref="portletController"/>
+            </map>
+        </property>
+    </bean>
+
     <bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
           p:location="/WEB-INF/spring.properties"/>
 
