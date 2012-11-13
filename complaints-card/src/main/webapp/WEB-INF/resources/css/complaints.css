@@ -4,7 +4,7 @@ body,td,th {
 }
 
 input.button_add {
-	background-image: url(../img/next.gif); /* 16px x 16px */
+	background-image: url(/resources/img/next.gif); /* 16px x 16px */
 	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: right;

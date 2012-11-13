@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: asergeev
@@ -20,11 +22,18 @@ public class ComplaintsController {
     protected static Logger log = Logger.getLogger("cmpl-controller");
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView helloWorld(){
-
+    public ModelAndView index(){
         ModelAndView model = new ModelAndView("form");
-        model.addObject("msg", "hello world");
+        String sessionId = ComplaintsController.getSessionId();
+        model.addObject("session-id", sessionId);
+        if(log.isDebugEnabled())
+            log.debug("ComplaintsController.index(), session-id = " + sessionId);
         return model;
+    }
+
+    public static synchronized String getSessionId() {
+        long value = System.currentTimeMillis();
+        return new Long(value).toString();
     }
 
 }

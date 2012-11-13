@@ -1,6 +1,7 @@
 package dao;
 
 import org.hibernate.Session;
+import ru.fccland.complaints.card.controller.ComplaintsController;
 import ru.fccland.complaints.card.domain.Category;
 import ru.fccland.complaints.card.domain.Department;
 import ru.fccland.complaints.card.util.HibernateUtil;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 public class TestHibernateSession {
     public static void main(String[] args) {
+
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
@@ -41,5 +43,8 @@ public class TestHibernateSession {
         }
 
         session.getTransaction().commit();
+
+        System.out.println("ComplaintsController.getSessionId() = " + ComplaintsController.getSessionId());
+        System.out.println("ComplaintsController.getSessionId() = " + ComplaintsController.getSessionId());
     }
 }

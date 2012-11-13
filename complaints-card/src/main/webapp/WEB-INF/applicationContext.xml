@@ -29,7 +29,7 @@
 
     <mvc:default-servlet-handler/>
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
     <import resource="trace-context.xml"/>
 
