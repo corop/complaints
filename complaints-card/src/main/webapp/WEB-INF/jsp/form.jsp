@@ -1,7 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="/WEB-INF/jsp/includes.jsp" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,16 +6,31 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Подача жалобы</title>
 
-    <link rel="stylesheet" type="text/css"  media="screen" href='<c:url value="../resources/css/complaints.css"/>'/>
-    <link rel="stylesheet" type="text/css"  media="screen" href='<c:url value="../resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
 
-    <script type='text/javascript' src='<c:url value="../resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="../resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="../resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="../resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
+    <link rel="stylesheet" type="text/css"  media="screen" href="/resources/css/complaints.css" htmlEscape="true" />
+    <link rel="stylesheet" type="text/css"  media="screen" href="/resources/css/complaints.css" htmlEscape="true" />
+    <link rel="stylesheet" type="text/css"  media="screen" href='<spring:url value="${pageContext.request.contextPath}/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css" htmlEscape="true" />'/>
+    <script type='text/javascript' src='<spring:url value="${pageContext.request.contextPath}/resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="${pageContext.request.contextPath}/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="${pageContext.request.contextPath}/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="${pageContext.request.contextPath}/resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
+
+            $.post("ref/departments",
+                    {'id' : id },
+                    function(data){
+                        var select = $('#department').empty();
+                        $.each(data.values, function(i,item) {
+                            select.append( '<option value="'
+                                    + item.id
+                                    + '">'
+                                    + item.name
+                                    + '</option>' );
+                        });
+                    }, "json");
+
             /* initial */
             $('#lastname').show();
             $('#firstname').show();
@@ -53,13 +65,13 @@
 </head>
 
 <body bgcolor="#F5F6F6">
-<h2>Подача жалоб </h2>
-<p>Поля отмеченные знаком <img src="../img/attention.gif" width="16" height="16" alt="A!" />, обязательны для заполнения</p>
-<form id="form1" name="form1" method="post" action="/addcomplaint">
+<h2>Подача жалоб ${context}</h2>
+<p>Поля отмеченные знаком <img src="<c:url value="resources/img/attention.gif"/>" width="16" height="16" alt="A!" />, обязательны для заполнения</p>
+<form id="cmplform" name="cmplform" method="post" action="/addcomplaint">
     <fieldset>
         <legend>&nbsp;<strong>Жалоба</strong>&nbsp;</legend>
 
-        <p>Орган в который будет отправлена жалоба: <img src="../img/attention.gif" width="16" height="16" alt="A!" /><br />
+        <p>Орган в который будет отправлена жалоба: <img src="/resources/img/attention.gif" width="16" height="16" alt="A!" /><br />
 
             <select name="department" size="1" id="department">
                 <option id="01">01 Управление Росреестра по Республике Адыгея</option>
@@ -70,7 +82,7 @@
             </select>
 
         </p>
-        <p>Наименование  органа, предоставляющего государственную услугу, должностного лица органа, предоставляющего государственную услугу, либо федерального государственного служащего, решения и действия (бездействия) которых обжалуются <img src="../img/attention.gif" width="16" height="16" alt="A!" /><br>
+        <p>Наименование  органа, предоставляющего государственную услугу, должностного лица органа, предоставляющего государственную услугу, либо федерального государственного служащего, решения и действия (бездействия) которых обжалуются <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /><br>
             <input name="dep_name" type="text" id="dep_name" size="128" />
         </p>
         <hr>
@@ -96,23 +108,23 @@
 
         <table width="814" border="0">
             <tr id="lastname">
-                <td width="195" align="right">Фамилия: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Фамилия: <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="lastname" id="lastname" /></td>
             </tr>
             <tr id="firstname">
-                <td width="195" align="right">Имя: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Имя: <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="firstname" id="firstname" /></td>
             </tr>
             <tr id="thirdname">
-                <td width="195" align="right">Отчество: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Отчество: <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="thirdname" id="thirdname" /></td>
             </tr>
             <tr id="entitlement">
-                <td width="195" align="right">Наименование: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Наименование: <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="entitlement" id="entitlement" /></td>
             </tr>
             <tr>
-                <td align="right">Местонахождение: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td align="right">Местонахождение: <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td><input name="post_index" type="text" id="post_index" value="Индекс" size="12" />
                     <input name="address" type="text" id="address" value="Почтовый адрес" size="64" /></td>
             </tr>
@@ -121,12 +133,12 @@
                 <td><input type="text" name="phone" id="phone" /></td>
             </tr>
             <tr>
-                <td align="right">Адрес Email: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td align="right">Адрес Email: <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td><input type="text" name="email" id="email" /></td>
             </tr>
         </table>
         <hr>
-        <p><strong>Тематика обращения:</strong> <img src="../img/attention.gif" width="16" height="16" alt="A!" /></p>
+        <p><strong>Тематика обращения:</strong> <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /></p>
         <table width="813" border="0">
             <tr>
                 <td width="405" align="left" valign="top"><p>
@@ -157,7 +169,7 @@
                     Другие вопросы, относящиеся к компетенции Росреестра    </p></td>
             </tr>
         </table>
-        <p><strong>Текст обращения:</strong> <img src="../img/attention.gif" width="16" height="16" alt="A!" /><br />
+        <p><strong>Текст обращения:</strong> <img src="/static/img/attention.gif" width="16" height="16" alt="A!" /><br />
             <textarea name="text" id="text" cols="120" rows="10"></textarea>
             <br />
         <fieldset>
