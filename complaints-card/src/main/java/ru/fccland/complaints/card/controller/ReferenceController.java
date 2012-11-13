@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import ru.fccland.complaints.card.service.CategoryService;
 import ru.fccland.complaints.card.service.ComplaintAuthorService;
 import ru.fccland.complaints.card.service.DepartmentService;
@@ -44,6 +46,8 @@ public class ReferenceController {
     DepartmentList getDepartments() {
         if(log.isDebugEnabled())
             log.debug("Provider has received request to get all departments");
+
+        // String remoteAddress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRemoteAddr();
 
         DepartmentList result = new DepartmentList();
         result.setData(departmentService.list());
