@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e13092-bb87-4f10-91b0-cb617b49fd45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" />
+      <change type="MOVED" beforePath="C:\Work\complaints\complaints-card\src\main\webapp\WEB-INF\jsp\index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/complaints_card_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/complaints_card_war.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/complaints_card_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/complaints_card_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="complaints-card.iws" />
@@ -86,7 +88,7 @@
       <file leaf-file-name="ReferenceController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="70" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0">
+            <state line="26" column="69" selection-start="997" selection-end="1062" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <file leaf-file-name="form.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="43" selection-start="1774" selection-end="1774" vertical-scroll-proportion="0.5860806">
+            <state line="19" column="77" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.37118438">
               <folding />
             </state>
           </provider>
@@ -127,8 +129,19 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="29" column="65" selection-start="1437" selection-end="1437" vertical-scroll-proportion="-21.09091">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComplaintsController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="46" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -172,7 +185,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="64" selection-start="395" selection-end="395" vertical-scroll-proportion="-6.5454545">
+            <state line="13" column="28" selection-start="499" selection-end="499" vertical-scroll-proportion="-9.454545">
               <folding />
             </state>
           </provider>
@@ -181,15 +194,6 @@
           </provider>
           <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DepartmentServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/service/impl/DepartmentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -207,9 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/DepartmentList.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/CategoryList.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintAuthorList.java" />
@@ -223,6 +224,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp" />
       </list>
     </option>
   </component>
@@ -789,7 +793,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -1031,23 +1035,32 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
+    <configuration default="false" name="Tomcat 7 JavaScript" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" value="http://localhost:8088/" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="false" name="Tomcat 7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="complaints-card:war">
+        <artifact name="complaints-card:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_complaints-card" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_complaints-card_2" />
       </server-settings>
       <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="54259" />
+        <option name="DEBUG_PORT" value="50247" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
@@ -1099,14 +1112,15 @@
       </ConfigurationWrapper>
       <method>
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="complaints-card:war" />
+          <artifact name="complaints-card:war exploded" />
         </option>
       </method>
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.TestHibernateSession" />
-      <item index="1" class="java.lang.String" itemvalue="Query Language Console.Default" />
-      <item index="2" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Tomcat 7 JavaScript" />
+      <item index="2" class="java.lang.String" itemvalue="Query Language Console.Default" />
+      <item index="3" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1202,7 +1216,11 @@
       <created>1352777984521</created>
       <updated>1352777984521</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="initial">
+      <created>1352780457676</created>
+      <updated>1352780457676</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1331,13 +1349,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/sql/oracle/prod.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/sql/oracle/create.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="218" column="51" selection-start="8796" selection-end="8796" vertical-scroll-proportion="0.0">
@@ -1411,25 +1422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="70" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml">
       <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
         <state />
@@ -1445,7 +1437,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="64" selection-start="395" selection-end="395" vertical-scroll-proportion="-6.5454545">
+        <state line="13" column="28" selection-start="499" selection-end="499" vertical-scroll-proportion="-9.454545">
           <folding />
         </state>
       </provider>
@@ -1456,9 +1448,37 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
+      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="43" selection-start="1774" selection-end="1774" vertical-scroll-proportion="0.5860806">
+        <state line="29" column="65" selection-start="1437" selection-end="1437" vertical-scroll-proportion="-21.09091">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="69" selection-start="997" selection-end="1062" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="46" selection-start="793" selection-end="793" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="77" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.37118438">
           <folding />
         </state>
       </provider>
@@ -1480,7 +1500,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.20000003" />
+                <option value="0.2" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1535,12 +1555,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>complaints-card</last-edited>
+          <last-edited>Web|complaints-card</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

@@ -54,12 +54,12 @@
 
 <body bgcolor="#F5F6F6">
 <h2>Подача жалоб </h2>
-<p>Поля отмеченные знаком <img src="img/attention.gif" width="16" height="16" alt="A!" />, обязательны для заполнения</p>
+<p>Поля отмеченные знаком <img src="../img/attention.gif" width="16" height="16" alt="A!" />, обязательны для заполнения</p>
 <form id="form1" name="form1" method="post" action="/addcomplaint">
     <fieldset>
         <legend>&nbsp;<strong>Жалоба</strong>&nbsp;</legend>
 
-        <p>Орган в который будет отправлена жалоба: <img src="img/attention.gif" width="16" height="16" alt="A!" /><br />
+        <p>Орган в который будет отправлена жалоба: <img src="../img/attention.gif" width="16" height="16" alt="A!" /><br />
 
             <select name="department" size="1" id="department">
                 <option id="01">01 Управление Росреестра по Республике Адыгея</option>
@@ -70,7 +70,7 @@
             </select>
 
         </p>
-        <p>Наименование  органа, предоставляющего государственную услугу, должностного лица органа, предоставляющего государственную услугу, либо федерального государственного служащего, решения и действия (бездействия) которых обжалуются <img src="img/attention.gif" width="16" height="16" alt="A!" /><br>
+        <p>Наименование  органа, предоставляющего государственную услугу, должностного лица органа, предоставляющего государственную услугу, либо федерального государственного служащего, решения и действия (бездействия) которых обжалуются <img src="../img/attention.gif" width="16" height="16" alt="A!" /><br>
             <input name="dep_name" type="text" id="dep_name" size="128" />
         </p>
         <hr>
@@ -96,23 +96,23 @@
 
         <table width="814" border="0">
             <tr id="lastname">
-                <td width="195" align="right">Фамилия: <img src="img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Фамилия: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="lastname" id="lastname" /></td>
             </tr>
             <tr id="firstname">
-                <td width="195" align="right">Имя: <img src="img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Имя: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="firstname" id="firstname" /></td>
             </tr>
             <tr id="thirdname">
-                <td width="195" align="right">Отчество: <img src="img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Отчество: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="thirdname" id="thirdname" /></td>
             </tr>
             <tr id="entitlement">
-                <td width="195" align="right">Наименование: <img src="img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td width="195" align="right">Наименование: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td width="609"><input type="text" name="entitlement" id="entitlement" /></td>
             </tr>
             <tr>
-                <td align="right">Местонахождение: <img src="img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td align="right">Местонахождение: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td><input name="post_index" type="text" id="post_index" value="Индекс" size="12" />
                     <input name="address" type="text" id="address" value="Почтовый адрес" size="64" /></td>
             </tr>
@@ -121,12 +121,12 @@
                 <td><input type="text" name="phone" id="phone" /></td>
             </tr>
             <tr>
-                <td align="right">Адрес Email: <img src="img/attention.gif" width="16" height="16" alt="A!" /></td>
+                <td align="right">Адрес Email: <img src="../img/attention.gif" width="16" height="16" alt="A!" /></td>
                 <td><input type="text" name="email" id="email" /></td>
             </tr>
         </table>
         <hr>
-        <p><strong>Тематика обращения:</strong> <img src="img/attention.gif" width="16" height="16" alt="A!" /></p>
+        <p><strong>Тематика обращения:</strong> <img src="../img/attention.gif" width="16" height="16" alt="A!" /></p>
         <table width="813" border="0">
             <tr>
                 <td width="405" align="left" valign="top"><p>
@@ -157,7 +157,7 @@
                     Другие вопросы, относящиеся к компетенции Росреестра    </p></td>
             </tr>
         </table>
-        <p><strong>Текст обращения:</strong> <img src="img/attention.gif" width="16" height="16" alt="A!" /><br />
+        <p><strong>Текст обращения:</strong> <img src="../img/attention.gif" width="16" height="16" alt="A!" /><br />
             <textarea name="text" id="text" cols="120" rows="10"></textarea>
             <br />
         <fieldset>

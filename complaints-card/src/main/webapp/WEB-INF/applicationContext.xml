@@ -20,13 +20,14 @@
 
     <mvc:annotation-driven/>
 
+
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
           p:maxUploadSize="1000000"/>
 
     <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"
           p:extractValueFromSingleKeyModel="true"/>
 
-    <mvc:resources mapping="/resources/**" location="resources/"/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <import resource="trace-context.xml"/>
 
