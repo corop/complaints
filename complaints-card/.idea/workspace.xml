@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23e13092-bb87-4f10-91b0-cb617b49fd45" name="Default" comment="">
+    <list default="true" id="23e13092-bb87-4f10-91b0-cb617b49fd45" name="Default" comment="initial">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/AttachedFile.java" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/AttachedFile.java" />
     </list>
     <ignored path="complaints-card.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,15 +83,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="complaints.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/complaints.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="1" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="applicationContext.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
           <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
@@ -113,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComplaintsController.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ComplaintsController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="124" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.3043478">
+            <state line="66" column="124" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#2827#2841#0" expanded="true" />
               </folding>
@@ -124,10 +115,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="create.sql" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/sql/oracle/create.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="0" selection-start="2685" selection-end="2685" vertical-scroll-proportion="0.96135265">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AttachedFile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/AttachedFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+            <state line="31" column="4" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="drop.sql" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/sql/oracle/drop.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,15 +160,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="45" selection-start="1215" selection-end="1215" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -174,9 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/test/dao/TestHibernateSession.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/portlet.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/PortletController.java" />
@@ -190,6 +187,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/UploadedFile.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/AttachedFile.java" />
+        <option value="$PROJECT_DIR$/src/main/sql/oracle/drop.sql" />
+        <option value="$PROJECT_DIR$/src/main/sql/oracle/create.sql" />
       </list>
     </option>
   </component>
@@ -534,6 +534,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="complaints-card" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="complaints-card" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oracle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1109,7 +1143,11 @@
       <created>1352881626968</created>
       <updated>1352881626968</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="initial">
+      <created>1352881938780</created>
+      <updated>1352881938780</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1238,22 +1276,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/PortletController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="54" selection-start="677" selection-end="677" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/portlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="328" selection-end="342" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/liferay-portlet.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="36" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
@@ -1336,13 +1358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/AttachedFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/UploadedFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
@@ -1359,10 +1374,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="124" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.3043478">
+        <state line="66" column="124" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#2827#2841#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/AttachedFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="4" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/sql/oracle/drop.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="943" selection-end="943" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/sql/oracle/create.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="2685" selection-end="2685" vertical-scroll-proportion="0.96135265">
+          <folding />
         </state>
       </provider>
     </entry>

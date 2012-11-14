@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 11g                           */
-/* Created on:     09.11.2012 16:08:06                          */
+/* Created on:     14.11.2012 12:49:42                          */
 /*==============================================================*/
 
 
@@ -19,6 +19,8 @@ alter table CMPL_COMPLAINT
 alter table CMPL_COMPLAINT
    drop constraint FK_CMPL_COM_REL_DEPAR_CMPL_DEP;
 
+drop index INDEX_ATTACHED_FILE_HTTP_SESSI;
+
 drop index INDEX_ATTACHED_FILE_INSERTED;
 
 drop index REL_COMPLAINT_TO_FILE_FK;
@@ -28,6 +30,8 @@ drop index REL_DOC_TYPE_TO_FILE_FK;
 drop table CMPL_ATTACHED_FILE cascade constraints;
 
 drop table CMPL_CATEGORY cascade constraints;
+
+drop index INDEX_COMPLAINT_HTTP_SESSION_I;
 
 drop index INDEX_COMPLAINT_EMAIL;
 
@@ -57,6 +61,7 @@ create table CMPL_ATTACHED_FILE
    ATTACHED_FILE_ID     INTEGER              not null,
    COMPLAINT_ID         INTEGER,
    DOC_TYPE_ID          INTEGER              not null,
+   HTTP_SESSION_ID      VARCHAR2(64),
    ATTACHED_FILE_NAME   VARCHAR2(256)        not null,
    ATTACHED_FILE_DESCR  VARCHAR2(1024),
    ATTACHED_FILE_INSERTED TIMESTAMP            not null,
@@ -85,6 +90,13 @@ create index INDEX_ATTACHED_FILE_INSERTED on CMPL_ATTACHED_FILE (
 );
 
 /*==============================================================*/
+/* Index: INDEX_ATTACHED_FILE_HTTP_SESSI                        */
+/*==============================================================*/
+create index INDEX_ATTACHED_FILE_HTTP_SESSI on CMPL_ATTACHED_FILE (
+   HTTP_SESSION_ID ASC
+);
+
+/*==============================================================*/
 /* Table: CMPL_CATEGORY                                         */
 /*==============================================================*/
 create table CMPL_CATEGORY 
@@ -103,6 +115,7 @@ create table CMPL_COMPLAINT
    DEPARTMENT_ID        INTEGER,
    COMPLAINT_AUTHOR_ID  INTEGER,
    CATEGORY_ID          INTEGER              not null,
+   HTTP_SESSION_ID      VARCHAR2(64)         not null,
    COMPLAINT_GOV_NAME   VARCHAR2(128)        not null,
    COMPLAINT_FNAME      VARCHAR2(32),
    COMPLAINT_LNAME      VARCHAR2(32),
@@ -152,6 +165,13 @@ create index INDEX_COMPLAINT_EMAIL on CMPL_COMPLAINT (
 );
 
 /*==============================================================*/
+/* Index: INDEX_COMPLAINT_HTTP_SESSION_I                        */
+/*==============================================================*/
+create index INDEX_COMPLAINT_HTTP_SESSION_I on CMPL_COMPLAINT (
+   HTTP_SESSION_ID ASC
+);
+
+/*==============================================================*/
 /* Table: CMPL_COMPLAINT_AUTHOR                                 */
 /*==============================================================*/
 create table CMPL_COMPLAINT_AUTHOR 
@@ -168,7 +188,7 @@ create table CMPL_DEPARTMENT
 (
    DEPARTMENT_ID        INTEGER              not null,
    DEPARTMENT_CODE      VARCHAR2(8)          not null,
-   DEPARTMENT_NAME      VARCHAR2(80)         not null,
+   DEPARTMENT_NAME      VARCHAR2(128)        not null,
    DEPARTMENT_EMAIL     VARCHAR2(64)         not null,
    constraint PK_CMPL_DEPARTMENT primary key (DEPARTMENT_ID)
 );

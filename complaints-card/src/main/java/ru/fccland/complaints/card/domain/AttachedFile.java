@@ -25,6 +25,8 @@ public class AttachedFile implements Serializable {
     @ManyToOne
     @JoinColumn(name="DOC_TYPE_ID")
     private DocType docType;
+    @Column(name="HTTP_SESSION_ID")
+    private String httpSessionId;
     @Column(name="ATTACHED_FILE_NAME")
     private String fileName;
     @Column(name="ATTACHED_FILE_DESCR")

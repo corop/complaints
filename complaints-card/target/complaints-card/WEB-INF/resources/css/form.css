@@ -1,0 +1,373 @@
+.wizardForm {
+    overflow: hidden;
+}
+
+.mainBlock {
+    width: 720px;
+}
+
+.formBlock {
+    width: 720px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.formBlock .blockHeader {
+    padding-right: 10px;
+    padding-left: 0;
+    position: relative;
+    top: -13px;
+    overflow: hidden;
+}
+
+.formBlock .blockHeader div {
+    float: left;
+    background-color: #f5f5f5;
+}
+
+.blockHeaderSpacer {
+    position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+.formBlock .blockHeader .blockCaption {
+    font-weight: bold;
+}
+
+.formBlock .blockContent {
+    min-height: 10px;
+    border: 1px solid #dcdcdc;
+    padding: 5px 13px;
+}
+
+.navigationButtons {
+    overflow: hidden;
+    clear: both;
+    margin-top: 5px;
+    border-top: 1px solid #dcdcdc;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    text-align: right;
+}
+
+.navigationButtons.center {
+    text-align: center;
+
+}
+
+.navigationButtons.center button {
+    float: none !important;
+
+}
+
+.formRowInput {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+}
+
+.formRowInput div {
+    float: left;
+}
+
+.formCaption {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.blockLabel {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.blockLabel h2 {
+	margin-top: 5px;
+	padding: 0px;
+	color: #666465;
+}
+
+.tinyInput {
+    width: 50px;
+}
+
+.shortInput {
+    width: 80px;
+}
+
+.mediumInput {
+    width: 223px;
+}
+.mediumInputLast {
+    width: 151px;
+}
+
+.largeInput {
+    width: 365px;
+}
+
+.veryLargeInput {
+    width: 415px;
+}
+
+.maxInput {
+    width: 550px;
+}
+
+.ogrnInput {
+    width: 96px;
+}
+
+.innInput {
+    width: 76px;
+}
+
+.houseInputBlock {
+    width: 70px;
+}
+
+.firstInputLabel {
+    width: 155px;
+}
+
+.firstDivBlock {
+    width: 220px;
+}
+
+.lastInput {
+    float: right !important;
+}
+
+.hspacer {
+    width: 15px;
+}
+
+.vspacer {
+    height: 16px;
+}
+
+.actionButton {
+    cursor: pointer;
+    border-width: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.checkboxWithLabel {
+    overflow: hidden;
+}
+
+.checkboxWithLabel .checkboxInput {
+    float: left;
+}
+
+.checkboxWithLabel .checkboxLabel {
+    padding-top: 5px;
+}
+
+.hline {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+.inputLabel {
+    padding-right: 5px;
+    text-align: right;
+    margin-left: 15px;
+}
+
+.subFormBlock {
+    clear: both;
+}
+
+.subFormBlockTitle {
+    text-align: left;
+    font-weight: bold;
+    clear: both;
+}
+
+.redPrompt {
+    color: #FF0101;
+    font-size: 10px;
+}
+
+.rightButton {
+    float: right;
+}
+
+.leftButton {
+    float: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.checkBlock {
+    clear: both; /*margin-top:-10px;*/
+    margin-bottom: 10px;
+
+}
+
+.checkBlock .blockContent {
+    min-height: 10px;
+    padding: 5px 13px;
+}
+
+.checkBlock .blockHeader {
+    font-weight: bold;
+    background-color: #DBDBDB;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    padding: 4px 0 4px 15px;
+}
+
+.checkRow {
+    clear: both;
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.checkRow .checkRowLabel {
+    width: 250px;
+    float: left;
+}
+
+.checkRow .checkRowValue {
+    font-weight: bold;
+    float:none !important;
+    float: left;
+    overflow:hidden;
+}
+
+.nofloat {
+    clear: both !important;
+    float: none !important;
+}
+
+p.error {
+    clear: both;
+    color: red;
+    margin-top: 5px;
+}
+
+.msgBlock {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+
+.msgBlock .msgContent {
+    background-color: white;
+    border: 1px solid #95999F;
+    padding: 17px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.msgBlock .msgContent .msgImage {
+    border-width: 0;
+    float: left;
+}
+
+.msgBlock .msgContent  .msgText {
+    text-align: left;
+    padding-left: 10px;
+    float: left;
+    margin-top: 0;
+}
+
+.horizontalRadioGroup {
+    overflow: hidden;
+}
+
+.horizontalRadioGroup > div {
+    float: left;
+}
+
+.horizontalRadioGroup > div > div {
+    float: left;
+}
+
+optgroup.selectLevel1 {
+
+}
+
+optgroup.selectLevel2 {
+    padding-left: 20px;
+    font-style:normal;
+}
+
+optgroup.selectLevel3 {
+    padding-left: 40px;
+    font-style:normal;
+}
+
+optgroup.selectLevel4 {
+    padding-left: 60px;
+    font-style:normal;
+}
+
+optgroup.selectLevel5 {
+    padding-left: 10px;
+}
+
+option.selectLevel1 {
+
+}
+
+option.selectLevel2 {
+    padding-left:20px;
+}
+
+option.selectHeaderLevel2 {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+option.selectLevel3 {
+    padding-left: 40px;
+}
+
+option.selectHeaderLevel3 {
+    padding-left: 40px;
+    font-weight: bold;
+}
+
+option.selectLevel4 {
+    padding-left: 60px;
+}
+
+option.selectHeaderLevel4 {
+    padding-left: 60px;
+    font-weight: bold;
+}
+
+option.selectLevel5 {
+    padding-left: 80px;
+}
+
+/* Styling a placeholder */
+::-webkit-input-placeholder {
+   color: #95999F;
+}
+
+:-moz-placeholder {
+   color: #95999F;
+}
+
+.placeholder {
+	color: #95999F;
+}
