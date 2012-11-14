@@ -40,15 +40,19 @@ public class ComplaintsController {
         return  ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession().getId();
     }
 
+    private String getRemoteAddress() {
+        return ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRemoteAddr();
+    }
+
     @RequestMapping
     public String form(){
-        String remoteAddress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRemoteAddr();
+
         String sessionId = getHttpSessionId();
 
         ComplaintsController.createSessionTempFolder(tempDirectoryName, sessionId);
 
         if(log.isDebugEnabled())
-            log.debug("ComplaintsController.index(), session-id = " + sessionId);
+            log.debug("ComplaintsController.index(sid="+sessionId+")");
 
         return "form";
     }
@@ -57,16 +61,17 @@ public class ComplaintsController {
     public @ResponseBody
     List<UploadedFile> upload(
             @RequestParam("file") MultipartFile file) {
+        String sessionId = getHttpSessionId();
         if(log.isDebugEnabled())
-            log.debug("ComplaintsController.upload(), file: " + file.getOriginalFilename() + " - " + file.getSize() + " bytes");
-
+            log.debug("ComplaintsController.upload(sid="+sessionId+"), file: " + file.getOriginalFilename() + " - " + file.getSize() + " bytes");
+        String fileName = tempDirectoryName+File.separator+getHttpSessionId() + File.separator + file.getOriginalFilename();
         try {
-            File f = new File(tempDirectoryName+File.separator+getHttpSessionId() + File.separator + file.getOriginalFilename());
+            File f = new File(fileName);
             FileOutputStream fos = new FileOutputStream(f);
             fos.write(file.getBytes());
             fos.close();
         } catch (Exception e) {
-            log.error(e);
+            log.error("Error save uploaded file, sid: "+sessionId+", file: " + fileName, e);
             return null;
         }
 

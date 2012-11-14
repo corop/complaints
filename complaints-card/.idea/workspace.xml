@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e13092-bb87-4f10-91b0-cb617b49fd45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/domain/UploadedFile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ReferenceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/form.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/complaints.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/resources/css/complaints.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring.properties" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring.properties" />
     </list>
     <ignored path="complaints-card.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,9 +116,9 @@
       <file leaf-file-name="ComplaintsController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="39" selection-start="2839" selection-end="2839" vertical-scroll-proportion="0.5434007">
+            <state line="66" column="124" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.3043478">
               <folding>
-                <element signature="e#2639#2653#0" expanded="true" />
+                <element signature="e#2827#2841#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1112,7 +1105,11 @@
       <created>1352829406444</created>
       <updated>1352829406444</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="initial">
+      <created>1352881626968</created>
+      <updated>1352881626968</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1362,9 +1359,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/fccland/complaints/card/controller/ComplaintsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="39" selection-start="2839" selection-end="2839" vertical-scroll-proportion="0.5434007">
+        <state line="66" column="124" selection-start="2429" selection-end="2429" vertical-scroll-proportion="0.3043478">
           <folding>
-            <element signature="e#2639#2653#0" expanded="true" />
+            <element signature="e#2827#2841#0" expanded="true" />
           </folding>
         </state>
       </provider>
