@@ -1,26 +1,34 @@
-<%@ include file="/WEB-INF/jsp/includes.jsp" %>
+<!-- %@ include file="/WEB-INF/jsp/includes.jsp" % -->
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <%@ page session="true" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" lang="ru"/>
+    <%@page contentType="text/html;charset=UTF-8" %>
+    <%@page pageEncoding="UTF-8" %>
+
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+    <meta charset="utf-8">
 
     <title>Подача жалобы</title>
 
 
     <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/css/complaints.css"/>'/>
     <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/css/form.css"/>'/>
-    <link rel="stylesheet" type="text/css" media="screen"
-          href='<c:url value="/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-file-upload/css/jquery.fileupload-ui.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"/>'/>
+
 
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/js/jquery.iframe-transport.js"/>'></script>
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/js/jquery-fileupload.js"/>'></script>
-
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/css/jquery.fileupload-ui.css"/>'></script>
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"/>'></script>
 
     <!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
     <!--[if lt IE 9]><!-- script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -44,8 +52,8 @@
 
             $('#upload').fileupload({
                 dataType:'json',
-                charset:'UTF-8',
-                formAcceptCharset: 'utf-8',
+//                charset:'UTF-8',
+//                formAcceptCharset: 'utf-8',
                 done:function (e, data) {
                     $.each(data.result, function (index, file) {
                         $('body').data('filelist').push(file);
@@ -53,10 +61,9 @@
                         $('#attach').empty().append('Загрузить еще файл');
                     });
                 },
-
-                progressall:function (e, data) {
+                progressall: function (e, data) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
-                    $('#progressbar').css(
+                    $('#progress .bar').css(
                             'width',
                             progress + '%'
                     );
@@ -100,10 +107,6 @@
             });
 
             $('body').data('filelist', new Array());
-
-            $( "#progressbar" ).progressbar({
-                value: 59
-            });
 
         });
 
@@ -157,7 +160,7 @@
         <td>
             <form accept-charset="UTF-8" id="cmplform" name="cmplform" method="post" action="/sendform">
                 <fieldset>
-                    <legend>&nbsp;<strong>Жалоба</strong>&nbsp;</legend>
+                    <legend>&nbsp;<strong>Жалоба, sid:&nbsp;<%=request.getSession().getId()%></strong>&nbsp;</legend>
 
                     <p>Орган в который будет отправлена жалоба: <img src="/resources/img/attention.gif" width="16"
                                                                      height="16" alt="A!"/><br/>
@@ -319,10 +322,14 @@
                         </p>
 
 
-                        <a href='#' id='attach'>Загрузить файл</a><br/>
+                        <a href='#attach' id='attach'>Загрузить файл</a><br/>
                         <span id='filename'></span><br/>
-                        <div id="progressbar"></div><br/>
-                        <input id="upload" type="file" name="file" data-url="/fileupload" multiple  lang="ru" accept="utf-8"
+
+                        <div id="progress">
+                            <div class="bar" style="width: 0%;"></div>
+                        </div>
+
+                        <input id="upload" type="file" name="file" data-url="/fileupload" multiple
                                style="opacity: 0; filter:alpha(opacity: 0);"><br/>
 
                     </fieldset>
