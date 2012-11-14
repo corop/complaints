@@ -18,6 +18,7 @@
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
     <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
+    <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/js/jquery-fileupload.js"/>'></script>
 
     <script type='text/javascript'>
         $(document).ready(function () {
@@ -32,6 +33,24 @@
                         }
                         $("select#department").html(options);
                     }, "json");
+
+            /* file uploader */
+
+            $('#fileupload').fileupload({
+                dataType: 'json',
+                done: function (e, data) {
+                    $.each(data.result, function (index, file) {
+                        $('<p/>').text(file.name).appendTo(document.body);
+                    });
+                },
+                progressall: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress .bar').css(
+                            'width',
+                            progress + '%'
+                    );
+                }
+            });
 
             /* initial */
             $('#lastname').show();
@@ -79,15 +98,14 @@
         <p>Поля отмеченные знаком <img src="/resources/img/attention.gif" width="16" height="16" alt="A!" />, обязательны для заполнения</p>
     </td></tr>
     <tr><td>
-        <form id="cmplform" name="cmplform" method="post" action="/sendcmpl">
-            <form:hidden path="session-id" value="${session-id}" />
+        <form id="cmplform" name="cmplform" method="post" action="/sendform">
             <fieldset>
                 <legend>&nbsp;<strong>Жалоба</strong>&nbsp;</legend>
 
                 <p>Орган в который будет отправлена жалоба: <img src="/resources/img/attention.gif" width="16" height="16" alt="A!" /><br />
                     <!-- Генерируется из справочной таблицы CMPL_DEPARTMENT -->
                     <select name="department" size="1" id="department">
-                        <option id="01" value="-1">Данные не загружены</option>
+                        <option id="-1" value="-1">Данные не загружены</option>
                     </select>
 
                 </p>
@@ -193,7 +211,11 @@
                         В этом случае обращение необходимо подписать цифровой подписью с помощью кнопки «Подписать и отправить».
                     </p>
                     <p>
-                        <input type="submit" name="addfile" id="addfile" value="Добавить" />
+                        <!--input type="" name="addfile" id="addfile" value="Добавить" / -->
+                        <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+                        <div id="progress">
+                            <div class="bar" style="width: 0%;"></div>
+                        </div>
                     </p>
                 </fieldset>
                 </p>

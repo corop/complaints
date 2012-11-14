@@ -33,6 +33,7 @@
 
     <import resource="trace-context.xml"/>
 
+    <!-- Portlet support -->
     <bean id="portletController" class=" ru.fccland.complaints.card.controller.PortletController">
     </bean>
 
@@ -43,9 +44,10 @@
             </map>
         </property>
     </bean>
+    <!-- end Portlet support -->
 
     <bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
-          p:location="/WEB-INF/spring.properties"/>
+          p:location="WEB-INF/spring.properties"/>
 
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="mediaTypes">

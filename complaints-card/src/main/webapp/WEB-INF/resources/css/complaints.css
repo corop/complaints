@@ -12,3 +12,8 @@ input.button_add {
 	vertical-align: middle;
 	margin-right: 10px;
 }
+
+.bar {
+    height: 18px;
+    background: green;
+}

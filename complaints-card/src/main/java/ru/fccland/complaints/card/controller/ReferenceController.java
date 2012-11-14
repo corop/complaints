@@ -15,7 +15,8 @@ import ru.fccland.complaints.card.service.DocTypeService;
 
 
 /**
- * Created with IntelliJ IDEA.
+ * REST service for references data
+ * Access for example - http://localhost:8080/ref/departments
  * User: asergeev
  * Date: 12.11.12
  * Time: 14:15
@@ -44,11 +45,11 @@ public class ReferenceController {
     public
     @ResponseBody
     DepartmentList getDepartments() {
-        if(log.isDebugEnabled())
+        if(log.isDebugEnabled()) {
             log.debug("Provider has received request to get all departments");
-
-        // String remoteAddress = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getRemoteAddr();
-
+            String sessionId = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession().getId();
+            log.debug("ReferenceController.getDepartments(), session-id = " + sessionId);
+        }
         DepartmentList result = new DepartmentList();
         result.setData(departmentService.list());
 
@@ -61,8 +62,11 @@ public class ReferenceController {
     public
     @ResponseBody
     CategoryList getCategories() {
-        if(log.isDebugEnabled())
+        if(log.isDebugEnabled()) {
             log.debug("Provider has received request to get all categories");
+            String sessionId = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession().getId();
+            log.debug("ReferenceController.getCategories(), session-id = " + sessionId);
+        }
 
         CategoryList result = new CategoryList();
         result.setData(categoryService.list());
@@ -76,10 +80,13 @@ public class ReferenceController {
     public
     @ResponseBody
     ComplaintAuthorList getComplaintAuthors() {
-        if(log.isDebugEnabled())
+        if(log.isDebugEnabled()) {
             log.debug("Provider has received request to get all Complaint authors types");
+            String sessionId = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession().getId();
+            log.debug("ReferenceController.getComplaintAuthors(), session-id = " + sessionId);
+        }
 
-        ComplaintAuthorList result = new ComplaintAuthorList();
+            ComplaintAuthorList result = new ComplaintAuthorList();
         result.setData(complaintAuthorService.list());
 
         return result;
@@ -91,8 +98,11 @@ public class ReferenceController {
     public
     @ResponseBody
     DocTypeList getDocTypes() {
-        if(log.isDebugEnabled())
+        if(log.isDebugEnabled()) {
             log.debug("Provider has received request to get all document types");
+            String sessionId = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession().getId();
+            log.debug("ReferenceController.getDocTypes(), session-id = " + sessionId);
+        }
 
         DocTypeList result = new DocTypeList();
         result.setData(docTypeService.list());
