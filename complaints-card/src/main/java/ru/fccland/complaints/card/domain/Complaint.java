@@ -23,6 +23,8 @@ public class Complaint  implements Serializable {
     private Department department;
     @ManyToOne
     private Category category;
+    @Column(name="HTTP_SESSION_ID")
+    private String httpSessionId;
     @Column(name="COMPLAINT_GOV_NAME")
     private String govName;
     @Column(name="COMPLAINT_FNAME")
@@ -47,11 +49,12 @@ public class Complaint  implements Serializable {
     public Complaint() {
     }
 
-    public Complaint(Long id, Department department, Category category, String govName, String firstName, String lastName, String thirdName,
+    public Complaint(Long id, Department department, Category category, String httpSessionId, String govName, String firstName, String lastName, String thirdName,
                      String company, String postIndex, String postAddress, String phone, String email, Date inserted) {
         this.id = id;
         this.department = department;
         this.category = category;
+        this.httpSessionId = httpSessionId;
         this.govName = govName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -168,12 +171,21 @@ public class Complaint  implements Serializable {
         this.inserted = inserted;
     }
 
+    public String getHttpSessionId() {
+        return httpSessionId;
+    }
+
+    public void setHttpSessionId(String httpSessionId) {
+        this.httpSessionId = httpSessionId;
+    }
+
     @Override
     public String toString() {
         return "Complaint{" +
                 "id=" + id +
                 ", department=" + department +
                 ", category=" + category +
+                ", httpSessionId='" + httpSessionId + '\'' +
                 ", govName='" + govName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

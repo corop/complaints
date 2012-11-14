@@ -37,10 +37,11 @@ public class AttachedFile implements Serializable {
     public AttachedFile() {
     }
 
-    public AttachedFile(Long id, Complaint complaint, DocType docType, String fileName, String fileDescription, Date fileInsterted) {
+    public AttachedFile(Long id, Complaint complaint, DocType docType, String httpSessionId, String fileName, String fileDescription, Date fileInsterted) {
         this.id = id;
         this.complaint = complaint;
         this.docType = docType;
+        this.httpSessionId = httpSessionId;
         this.fileName = fileName;
         this.fileDescription = fileDescription;
         this.fileInsterted = fileInsterted;
@@ -68,6 +69,14 @@ public class AttachedFile implements Serializable {
 
     public void setDocType(DocType docType) {
         this.docType = docType;
+    }
+
+    public String getHttpSessionId() {
+        return httpSessionId;
+    }
+
+    public void setHttpSessionId(String httpSessionId) {
+        this.httpSessionId = httpSessionId;
     }
 
     public String getFileName() {
@@ -100,6 +109,7 @@ public class AttachedFile implements Serializable {
                 "id=" + id +
                 ", complaint=" + complaint +
                 ", docType=" + docType +
+                ", httpSessionId='" + httpSessionId + '\'' +
                 ", fileName='" + fileName + '\'' +
                 ", fileDescription='" + fileDescription + '\'' +
                 ", fileInsterted=" + fileInsterted +
