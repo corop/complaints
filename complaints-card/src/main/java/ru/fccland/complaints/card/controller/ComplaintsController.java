@@ -74,14 +74,17 @@ public class ComplaintsController {
         String sessionId = getHttpSessionId();
         if(log.isDebugEnabled())
             log.debug("ComplaintsController.sendform(sid="+sessionId+"): " + message);
-
-
         try {
             Complaint complaint = new Complaint();
             Department department = departmentService.get(new Long(message.getDepartment()));
+            if(department == null)
+                return  new StatusResponse(false, "Внутренняя ошибка сервиса. <br>Неизвестный тип поля \"Орган в который будет отправлена жалоба\", {id="
+                        + message.getDepartment() + "} ");
             complaint.setDepartment(department);
             complaint.setGovName(message.getDep_name());
             ComplaintAuthor complaintAuthor =  complaintAuthorService.get(new Long(message.getWho()));
+            if(complaintAuthor == null)
+                return  new StatusResponse(false, "Внутренняя ошибка сервиса. <br>Неизвестный тип поля \"Кем являетесь\", {id="+message.getWho()+"} ");
             complaint.setComplaintAuthor(complaintAuthor);
             complaint.setFirstName(message.getFirstname());
             complaint.setLastName(message.getLastname());
@@ -92,14 +95,18 @@ public class ComplaintsController {
             complaint.setPhone(message.getPhone());
             complaint.setEmail(message.getEmail());
             Category category = categoryService.get(new Long(message.getCategory()));
+            if(category == null)
+                return  new StatusResponse(false, "Внутренняя ошибка сервиса. <br>Неизвестный тип поля \"Тематика обращения\", {id="+message.getWho()+"} ");
             complaint.setCategory(category);
             complaint.setAppeal(message.getAppeal());
             complaint.setHttpSessionId(sessionId);
+            // complaint.setInserted(new Date()); // setup in trigger ON INSERT
+           //  complaint.setSended(0L); default 0L
             complaintService.add(complaint);
             return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
         } catch (Exception e) {
             log.error("Error save new Complaint from Message: " + message, e);
-            return  new StatusResponse(false, "Внутренняя ошибка сервиса. Попробуйте позже повторить попытку.");
+            return  new StatusResponse(false, "Внутренняя ошибка сервиса. Попробуйте позже повторить попытку.<br>"+e.getMessage());
         }
     }
 
@@ -125,8 +132,36 @@ public class ComplaintsController {
         UploadedFile u = new UploadedFile();
         u.setName(file.getOriginalFilename());
         u.setSize(Long.valueOf(file.getSize()).intValue());
+        u.setDelete_url("/delete/" + sessionId + "/" + file.getOriginalFilename());
         uploadedFiles.add(u);
 
+        return uploadedFiles;
+    }
+
+    @RequestMapping(value="/delete", method=RequestMethod.POST)
+    public @ResponseBody
+    List<UploadedFile> delete(
+            @RequestParam("file") MultipartFile file) {
+        String sessionId = getHttpSessionId();
+        if(log.isDebugEnabled())
+            log.debug("ComplaintsController.delete(sid="+sessionId+"), file: " + file.getOriginalFilename() + " - " + file.getSize() + " bytes");
+        String fileName = tempDirectoryName+File.separator+getHttpSessionId() + File.separator + file.getOriginalFilename();
+        try {
+            File f = new File(fileName);
+            FileOutputStream fos = new FileOutputStream(f);
+            fos.write(file.getBytes());
+            fos.close();
+        } catch (Exception e) {
+            log.error("Error save uploaded file, sid: "+sessionId+", file: " + fileName, e);
+            return null;
+        }
+
+        List<UploadedFile> uploadedFiles = new ArrayList<UploadedFile>();
+        UploadedFile u = new UploadedFile();
+        u.setName(file.getOriginalFilename());
+        u.setSize(Long.valueOf(file.getSize()).intValue());
+        u.setDelete_url("/delete/" + sessionId + "/" + file.getOriginalFilename());
+        uploadedFiles.add(u);
         return uploadedFiles;
     }
 

@@ -50,6 +50,8 @@ public class Complaint  implements Serializable {
     private String email;
     @Column(name="COMPLAINT_INSERTED")
     private Date inserted;
+    @Column(name="COMPLAINT_SENDED")
+    private Long sended;
     @Column(name="COMPLAINT_APPEAL")
     @Lob
     private String appeal;
@@ -57,8 +59,7 @@ public class Complaint  implements Serializable {
     public Complaint() {
     }
 
-
-    public Complaint(Long id, Department department, Category category, ComplaintAuthor complaintAuthor, String httpSessionId, String govName, String firstName, String lastName, String thirdName, String company, String postIndex, String postAddress, String phone, String email, Date inserted, String appeal) {
+    public Complaint(Long id, Department department, Category category, ComplaintAuthor complaintAuthor, String httpSessionId, String govName, String firstName, String lastName, String thirdName, String company, String postIndex, String postAddress, String phone, String email, Date inserted, Long sended, String appeal) {
         this.id = id;
         this.department = department;
         this.category = category;
@@ -74,6 +75,7 @@ public class Complaint  implements Serializable {
         this.phone = phone;
         this.email = email;
         this.inserted = inserted;
+        this.sended = sended;
         this.appeal = appeal;
     }
 
@@ -99,6 +101,22 @@ public class Complaint  implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public ComplaintAuthor getComplaintAuthor() {
+        return complaintAuthor;
+    }
+
+    public void setComplaintAuthor(ComplaintAuthor complaintAuthor) {
+        this.complaintAuthor = complaintAuthor;
+    }
+
+    public String getHttpSessionId() {
+        return httpSessionId;
+    }
+
+    public void setHttpSessionId(String httpSessionId) {
+        this.httpSessionId = httpSessionId;
     }
 
     public String getGovName() {
@@ -181,20 +199,12 @@ public class Complaint  implements Serializable {
         this.inserted = inserted;
     }
 
-    public String getHttpSessionId() {
-        return httpSessionId;
+    public Long getSended() {
+        return sended;
     }
 
-    public void setHttpSessionId(String httpSessionId) {
-        this.httpSessionId = httpSessionId;
-    }
-
-    public ComplaintAuthor getComplaintAuthor() {
-        return complaintAuthor;
-    }
-
-    public void setComplaintAuthor(ComplaintAuthor complaintAuthor) {
-        this.complaintAuthor = complaintAuthor;
+    public void setSended(Long sended) {
+        this.sended = sended;
     }
 
     public String getAppeal() {
@@ -223,6 +233,7 @@ public class Complaint  implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", inserted=" + inserted +
+                ", sended=" + sended +
                 ", appeal='" + appeal + '\'' +
                 '}';
     }

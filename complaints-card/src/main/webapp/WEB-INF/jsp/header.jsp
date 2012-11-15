@@ -5,8 +5,7 @@ PetClinic :: a Spring Framework demonstration
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="<spring:url value="/static/styles/petclinic.css" htmlEscape="true" />" type="text/css"/>
-    <title>PetClinic :: a Spring Framework demonstration</title>
+    <title>Внутренняя ошибка сервиса</title>
 </head>
 
 <body>
