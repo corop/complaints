@@ -9,13 +9,9 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import ru.fccland.complaints.card.domain.Message;
-import ru.fccland.complaints.card.domain.UploadedFile;
+import ru.fccland.complaints.card.domain.*;
 import ru.fccland.complaints.card.responces.StatusResponse;
-import ru.fccland.complaints.card.service.CategoryService;
-import ru.fccland.complaints.card.service.ComplaintAuthorService;
-import ru.fccland.complaints.card.service.DepartmentService;
-import ru.fccland.complaints.card.service.DocTypeService;
+import ru.fccland.complaints.card.service.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,6 +43,8 @@ public class ComplaintsController {
     private DepartmentService departmentService;
     @Autowired
     private DocTypeService docTypeService;
+    @Autowired
+    private ComplaintService complaintService;
 
 
     private String getHttpSessionId() {
@@ -77,9 +75,32 @@ public class ComplaintsController {
         if(log.isDebugEnabled())
             log.debug("ComplaintsController.sendform(sid="+sessionId+"): " + message);
 
-        //categoryService
 
-        return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
+        try {
+            Complaint complaint = new Complaint();
+            Department department = departmentService.get(new Long(message.getDepartment()));
+            complaint.setDepartment(department);
+            complaint.setGovName(message.getDep_name());
+            ComplaintAuthor complaintAuthor =  complaintAuthorService.get(new Long(message.getWho()));
+            complaint.setComplaintAuthor(complaintAuthor);
+            complaint.setFirstName(message.getFirstname());
+            complaint.setLastName(message.getLastname());
+            complaint.setThirdName(message.getThirdname());
+            complaint.setCompany(message.getEntitlement();
+            complaint.setPostIndex(message.getPost_index());
+            complaint.setPostAddress(message.getPost_address());
+            complaint.setPhone(message.getPhone());
+            complaint.setEmail(message.getEmail());
+            Category category = categoryService.get(new Long(message.getCategory()));
+            complaint.setCategory(category);
+            complaint.setAppeal(message.getAppeal());
+            complaint.setHttpSessionId(sessionId);
+            complaintService.add(complaint);
+            return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
+        } catch (Exception e) {
+            log.error("Error save new Complaint from Message: " + message, e);
+            return  new StatusResponse(false, "Внутренняя ошибка сервиса. Попробуйте позже повторить попытку.");
+        }
     }
 
     @RequestMapping(value="/fileupload", method=RequestMethod.POST)

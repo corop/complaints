@@ -23,6 +23,8 @@ public class Complaint  implements Serializable {
     private Department department;
     @ManyToOne
     private Category category;
+    @ManyToOne
+    private ComplaintAuthor complaintAuthor;
     @Column(name="HTTP_SESSION_ID")
     private String httpSessionId;
     @Column(name="COMPLAINT_GOV_NAME")
@@ -45,15 +47,19 @@ public class Complaint  implements Serializable {
     private String email;
     @Column(name="COMPLAINT_INSERTED")
     private Date inserted;
+    @Column(name="COMPLAINT_APPEAL")
+    @Lob
+    private String appeal;
 
     public Complaint() {
     }
 
-    public Complaint(Long id, Department department, Category category, String httpSessionId, String govName, String firstName, String lastName, String thirdName,
-                     String company, String postIndex, String postAddress, String phone, String email, Date inserted) {
+
+    public Complaint(Long id, Department department, Category category, ComplaintAuthor complaintAuthor, String httpSessionId, String govName, String firstName, String lastName, String thirdName, String company, String postIndex, String postAddress, String phone, String email, Date inserted, String appeal) {
         this.id = id;
         this.department = department;
         this.category = category;
+        this.complaintAuthor = complaintAuthor;
         this.httpSessionId = httpSessionId;
         this.govName = govName;
         this.firstName = firstName;
@@ -65,6 +71,7 @@ public class Complaint  implements Serializable {
         this.phone = phone;
         this.email = email;
         this.inserted = inserted;
+        this.appeal = appeal;
     }
 
     public Long getId() {
@@ -179,12 +186,29 @@ public class Complaint  implements Serializable {
         this.httpSessionId = httpSessionId;
     }
 
+    public ComplaintAuthor getComplaintAuthor() {
+        return complaintAuthor;
+    }
+
+    public void setComplaintAuthor(ComplaintAuthor complaintAuthor) {
+        this.complaintAuthor = complaintAuthor;
+    }
+
+    public String getAppeal() {
+        return appeal;
+    }
+
+    public void setAppeal(String appeal) {
+        this.appeal = appeal;
+    }
+
     @Override
     public String toString() {
         return "Complaint{" +
                 "id=" + id +
                 ", department=" + department +
                 ", category=" + category +
+                ", complaintAuthor=" + complaintAuthor +
                 ", httpSessionId='" + httpSessionId + '\'' +
                 ", govName='" + govName + '\'' +
                 ", firstName='" + firstName + '\'' +
@@ -196,6 +220,7 @@ public class Complaint  implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", inserted=" + inserted +
+                ", appeal='" + appeal + '\'' +
                 '}';
     }
 }

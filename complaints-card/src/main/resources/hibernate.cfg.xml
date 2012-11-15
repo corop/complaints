@@ -10,6 +10,7 @@
         <property name="hibernate.connection.password">cmpl</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.default_schema">CMPL</property>
+        <property name="hibernate.jdbc.use_streams_for_binary">true</property>
         <property name="show_sql">true</property>
         <mapping class="ru.fccland.complaints.card.domain.Department"></mapping>
         <mapping class="ru.fccland.complaints.card.domain.Category"></mapping>

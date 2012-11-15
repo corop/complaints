@@ -24,13 +24,14 @@ public class Message implements Serializable {
     private String post_address;
     private String phone;
     private String email;    
+    private String category;
     private String appeal;
 
     public Message() {
         super();
     }
 
-    public Message(String department, String dep_name, String who, String lastname, String firstname, String thirdname, String entitlement, String post_index, String post_address, String phone, String email, String appeal) {
+    public Message(String department, String dep_name, String who, String lastname, String firstname, String thirdname, String entitlement, String post_index, String post_address, String phone, String email, String category, String appeal) {
         this.department = department;
         this.dep_name = dep_name;
         this.who = who;
@@ -42,6 +43,7 @@ public class Message implements Serializable {
         this.post_address = post_address;
         this.phone = phone;
         this.email = email;
+        this.category = category;
         this.appeal = appeal;
     }
 
@@ -141,21 +143,30 @@ public class Message implements Serializable {
         this.appeal = appeal;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
-                "\ndepartment='" + department + '\'' +
-                ",\n dep_name='" + dep_name + '\'' +
-                ",\n who='" + who + '\'' +
-                ",\n lastname='" + lastname + '\'' +
-                ",\n firstname='" + firstname + '\'' +
-                ",\n thirdname='" + thirdname + '\'' +
-                ",\n entitlement='" + entitlement + '\'' +
-                ",\n post_index='" + post_index + '\'' +
-                ",\n post_address='" + post_address + '\'' +
-                ",\n phone='" + phone + '\'' +
-                ",\n email='" + email + '\'' +
-                ",\n appeal='" + appeal + '\'' +
+                "department='" + department + '\'' +
+                ", dep_name='" + dep_name + '\'' +
+                ", who='" + who + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", thirdname='" + thirdname + '\'' +
+                ", entitlement='" + entitlement + '\'' +
+                ", post_index='" + post_index + '\'' +
+                ", post_address='" + post_address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", category='" + category + '\'' +
+                ", appeal='" + appeal + '\'' +
                 '}';
     }
 }

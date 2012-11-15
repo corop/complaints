@@ -49,6 +49,7 @@
       <column name="COMPLAINT_POST_ADDRESS" sqlType="VARCHAR2" length="64" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="COMPLAINT_PHONE" sqlType="VARCHAR2" length="12" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="COMPLAINT_EMAIL" sqlType="VARCHAR2" length="32" precision="0" nullable="false" jdbcType="12" version="true" />
+      <column name="COMPLAINT_APPEAL" sqlType="CLOB" length="4000" precision="0" nullable="true" jdbcType="2005" version="true" />
       <column name="COMPLAINT_INSERTED" sqlType="TIMESTAMP(6)" length="11" precision="6" nullable="false" jdbcType="93" version="true" />
       <primary-key name="PK_CMPL_COMPLAINT" columns="COMPLAINT_ID" />
       <foreign-key name="FK_CMPL_COM_REL_CATEG_CMPL_CAT" columns="CATEGORY_ID" ref-table="CMPL_CATEGORY" ref-schema="CMPL" ref-catalog="" ref-columns="CATEGORY_ID" update-rule="0" delete-rule="1" deferrability="2" />

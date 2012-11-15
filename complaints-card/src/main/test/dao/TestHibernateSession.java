@@ -2,9 +2,15 @@ package dao;
 
 import org.hibernate.Session;
 import ru.fccland.complaints.card.controller.ComplaintsController;
+import ru.fccland.complaints.card.dao.impl.CategoryDAOImpl;
 import ru.fccland.complaints.card.domain.Category;
+import ru.fccland.complaints.card.domain.Complaint;
 import ru.fccland.complaints.card.domain.ComplaintAuthor;
 import ru.fccland.complaints.card.domain.Department;
+import ru.fccland.complaints.card.service.ComplaintAuthorService;
+import ru.fccland.complaints.card.service.impl.CategoryServiceImpl;
+import ru.fccland.complaints.card.service.impl.ComplaintAuthorServiceImpl;
+import ru.fccland.complaints.card.service.impl.DepartmentServiceImpl;
 import ru.fccland.complaints.card.util.HibernateUtil;
 
 import java.util.List;
@@ -44,11 +50,12 @@ public class TestHibernateSession {
         }
 
         System.out.println("***********************************************");
-
+        /*
         Category category = (Category)session.load(Category.class, new Long(4));
         System.out.println("category = " + category);
         ComplaintAuthor complaintAuthor = (ComplaintAuthor)session.load(ComplaintAuthor.class, new Long(1));
         System.out.println("complaintAuthor = " + complaintAuthor);
+        */
 
         session.getTransaction().commit();
     }
