@@ -118,22 +118,22 @@
             $('#tr_entitlement').hide();
 
             $('input[name=who]').click(function () {
-                if ($(this).val() == "company") {
+                if ($(this).val() == "2") {               /* Юридическое лицо */
                     $('#tr_lastname').hide();
                     $('#tr_firstname').hide();
                     $('#tr_thirdname').hide();
                     $('#tr_entitlement').show();
-                } else if ($(this).val() == "man") {
+                } else if ($(this).val() == "1") {    /* Физическое лицо */
                     $('#tr_lastname').show();
                     $('#tr_firstname').show();
                     $('#tr_thirdname').show();
                     $('#tr_entitlement').hide();
-                } else if ($(this).val() == "rep_man") {
+                } else if ($(this).val() == "3") {    /* Представитель физического лица */
                     $('#tr_lastname').show();
                     $('#tr_firstname').show();
                     $('#tr_thirdname').show();
                     $('#tr_entitlement').show();
-                } else if ($(this).val() == "rep_company") {
+                } else if ($(this).val() == "4") {    /* Представитель юридического лица */
                     $('#tr_lastname').show();
                     $('#tr_firstname').show();
                     $('#tr_thirdname').show();

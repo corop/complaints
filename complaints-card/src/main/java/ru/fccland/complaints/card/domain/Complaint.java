@@ -19,11 +19,14 @@ public class Complaint  implements Serializable {
     @SequenceGenerator(name="CMPL_SEQ_COMPLAINT", sequenceName="CMPL_SEQ_COMPLAINT")
     @Column(name="COMPLAINT_ID")
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DEPARTMENT_ID", nullable = false)
     private Department department;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_ID", nullable = false)
     private Category category;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COMPLAINT_AUTHOR_ID", nullable = false)
     private ComplaintAuthor complaintAuthor;
     @Column(name="HTTP_SESSION_ID")
     private String httpSessionId;

@@ -86,7 +86,7 @@ public class ComplaintsController {
             complaint.setFirstName(message.getFirstname());
             complaint.setLastName(message.getLastname());
             complaint.setThirdName(message.getThirdname());
-            complaint.setCompany(message.getEntitlement();
+            complaint.setCompany(message.getEntitlement());
             complaint.setPostIndex(message.getPost_index());
             complaint.setPostAddress(message.getPost_address());
             complaint.setPhone(message.getPhone());
