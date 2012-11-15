@@ -17,12 +17,14 @@
       <column name="ATTACHED_FILE_ID" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3" version="true" />
       <column name="COMPLAINT_ID" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3" version="true" />
       <column name="DOC_TYPE_ID" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3" version="true" />
+      <column name="HTTP_SESSION_ID" sqlType="VARCHAR2" length="64" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="ATTACHED_FILE_NAME" sqlType="VARCHAR2" length="256" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="ATTACHED_FILE_DESCR" sqlType="VARCHAR2" length="1024" precision="0" nullable="true" jdbcType="12" version="true" />
       <column name="ATTACHED_FILE_INSERTED" sqlType="TIMESTAMP(6)" length="11" precision="6" nullable="false" jdbcType="93" version="true" />
       <primary-key name="PK_CMPL_ATTACHED_FILE" columns="ATTACHED_FILE_ID" />
       <foreign-key name="FK_CMPL_ATT_REL_COMPL_CMPL_COM" columns="COMPLAINT_ID" ref-table="CMPL_COMPLAINT" ref-schema="CMPL" ref-catalog="" ref-columns="COMPLAINT_ID" update-rule="0" delete-rule="1" deferrability="2" />
       <foreign-key name="FK_CMPL_ATT_REL_DOC_T_CMPL_DOC" columns="DOC_TYPE_ID" ref-table="CMPL_DOC_TYPE" ref-schema="CMPL" ref-catalog="" ref-columns="DOC_TYPE_ID" update-rule="0" delete-rule="1" deferrability="2" />
+      <index name="INDEX_ATTACHED_FILE_HTTP_SESSI" unique="false" columns="HTTP_SESSION_ID" />
       <index name="INDEX_ATTACHED_FILE_INSERTED" unique="false" columns="ATTACHED_FILE_INSERTED" />
       <index name="REL_COMPLAINT_TO_FILE_FK" unique="false" columns="COMPLAINT_ID" />
       <index name="REL_DOC_TYPE_TO_FILE_FK" unique="false" columns="DOC_TYPE_ID" />
@@ -37,6 +39,7 @@
       <column name="DEPARTMENT_ID" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3" version="true" />
       <column name="COMPLAINT_AUTHOR_ID" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3" version="true" />
       <column name="CATEGORY_ID" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3" version="true" />
+      <column name="HTTP_SESSION_ID" sqlType="VARCHAR2" length="64" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="COMPLAINT_GOV_NAME" sqlType="VARCHAR2" length="128" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="COMPLAINT_FNAME" sqlType="VARCHAR2" length="32" precision="0" nullable="true" jdbcType="12" version="true" />
       <column name="COMPLAINT_LNAME" sqlType="VARCHAR2" length="32" precision="0" nullable="true" jdbcType="12" version="true" />
@@ -52,6 +55,7 @@
       <foreign-key name="FK_CMPL_COM_REL_AUTHO_CMPL_COM" columns="COMPLAINT_AUTHOR_ID" ref-table="CMPL_COMPLAINT_AUTHOR" ref-schema="CMPL" ref-catalog="" ref-columns="COMPLAINT_AUTHOR_ID" update-rule="0" delete-rule="1" deferrability="2" />
       <foreign-key name="FK_CMPL_COM_REL_DEPAR_CMPL_DEP" columns="DEPARTMENT_ID" ref-table="CMPL_DEPARTMENT" ref-schema="CMPL" ref-catalog="" ref-columns="DEPARTMENT_ID" update-rule="0" delete-rule="1" deferrability="2" />
       <index name="INDEX_COMPLAINT_EMAIL" unique="false" columns="COMPLAINT_EMAIL" />
+      <index name="INDEX_COMPLAINT_HTTP_SESSION_I" unique="false" columns="HTTP_SESSION_ID" />
       <index name="INDEX_COMPLAINT_INSERTED" unique="false" columns="COMPLAINT_INSERTED" />
       <index name="REL_AUTHOR_TO_COMPLAINT_FK" unique="false" columns="COMPLAINT_AUTHOR_ID" />
       <index name="REL_CATEGORY_TO_COMPLAINT_FK" unique="false" columns="CATEGORY_ID" />

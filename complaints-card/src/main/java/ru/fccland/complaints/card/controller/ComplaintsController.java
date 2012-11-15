@@ -3,15 +3,14 @@ package ru.fccland.complaints.card.controller;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import ru.fccland.complaints.card.domain.Message;
 import ru.fccland.complaints.card.domain.UploadedFile;
+import ru.fccland.complaints.card.responces.StatusResponse;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -55,6 +54,15 @@ public class ComplaintsController {
             log.debug("ComplaintsController.index(sid="+sessionId+")");
 
         return "form";
+    }
+
+    @RequestMapping(value ="/sendform", method=RequestMethod.POST)
+    public @ResponseBody
+    StatusResponse sendform(@RequestBody Message message) {
+        String sessionId = getHttpSessionId();
+        if(log.isDebugEnabled())
+            log.debug("ComplaintsController.sendform(sid="+sessionId+"): " + message);
+        return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
     }
 
     @RequestMapping(value="/fileupload", method=RequestMethod.POST)

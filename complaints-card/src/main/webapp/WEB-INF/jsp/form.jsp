@@ -16,28 +16,61 @@
     <title>Подача жалобы</title>
 
 
-    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/css/complaints.css"/>'/>
-    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/css/form.css"/>'/>
-    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
-    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-file-upload/css/jquery.fileupload-ui.css"/>'/>
-    <link rel="stylesheet" type="text/css" media="screen" href='<c:url value="/resources/js/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<spring:url value="resources/css/complaints.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<spring:url value="resources/css/form.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<spring:url value="resources/js/jquery-ui-1.9.1/themes/base/jquery-ui.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<spring:url value="resources/js/jquery-file-upload/css/jquery.fileupload-ui.css"/>'/>
+    <link rel="stylesheet" type="text/css" media="screen" href='<spring:url value="resources/js/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"/>'/>
 
 
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/js/jquery.iframe-transport.js"/>'></script>
-    <script type='text/javascript' src='<c:url value="/resources/js/jquery-file-upload/js/jquery-fileupload.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/jquery-ui-1.9.1/jquery-1.8.2.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/util.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/jquery-ui-1.9.1/ui/jquery.ui.core.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/jquery-ui-1.9.1/ui/jquery.ui.widget.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/jquery-ui-1.9.1/ui/jquery.ui.button.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/jquery-file-upload/js/jquery.iframe-transport.js"/>'></script>
+    <script type='text/javascript' src='<spring:url value="resources/js/jquery-file-upload/js/jquery-fileupload.js"/>'></script>
 
     <!-- Shim to make HTML5 elements usable in older Internet Explorer versions -->
     <!--[if lt IE 9]><!-- script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 
-    <script type='text/javascript' charset="utf-8">
+    <script type='text/javascript'>
+
         $(document).ready(function () {
 
-            $.get("/ref/departments",
+            $('input:button').button();
+            $('#submit').button();
+
+            $('#cmplform').submit(function(event) {
+
+                event.preventDefault();
+
+                $.postJSON('sendform', {
+                            department: $('#department').val(),
+                            dep_name:  $('#dep_name').val(),
+                            who: $('input[name=who]:checked').val(),
+                            lastname: $('#lastname').val(),
+                            firstname: $('#firstname').val(),
+                            thirdname: $('#thirdname').val(),
+                            entitlement: $('#entitlement').val(),
+                            post_index: $('#post_index').val(),
+                            post_address: $('#post_address').val(),
+                            phone: $('#phone').val(),
+                            email: $('#email').val(),
+                            appeal: $('#appeal').val()
+                        },
+                        function(result) {
+                            if (result.success == true) {
+                                dialog('Success', 'Email has been sent!');
+                            } else {
+                                dialog('Failure', 'Email has not been sent!');
+                            }
+                        });
+            });
+
+
+            $.get("ref/departments",
                     function (responce) {
                         var select = $('#department').empty();
                         var options = '';
@@ -52,14 +85,16 @@
 
             $('#upload').fileupload({
                 dataType:'json',
-//                charset:'UTF-8',
-//                formAcceptCharset: 'utf-8',
                 done:function (e, data) {
                     $.each(data.result, function (index, file) {
                         $('body').data('filelist').push(file);
                         $('#filename').append(formatFileDisplay(file));
                         $('#attach').empty().append('Загрузить еще файл');
                     });
+                    $('#progress .bar').css(
+                            'width',
+                            0 + '%'
+                    );
                 },
                 progressall: function (e, data) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -67,37 +102,41 @@
                             'width',
                             progress + '%'
                     );
+                },
+                error: function (ev, data) {
+                    console.log(ev);
+                    dialog("Ошибка загрузки файла", data.filename);
                 }
-            });
+        });
 
 
             /* initial */
-            $('#lastname').show();
-            $('#firstname').show();
-            $('#thirdname').show();
-            $('#entitlement').hide();
+            $('#tr_lastname').show();
+            $('#tr_firstname').show();
+            $('#tr_thirdname').show();
+            $('#tr_entitlement').hide();
 
             $('input[name=who]').click(function () {
                 if ($(this).val() == "company") {
-                    $('#lastname').hide();
-                    $('#firstname').hide();
-                    $('#thirdname').hide();
-                    $('#entitlement').show();
+                    $('#tr_lastname').hide();
+                    $('#tr_firstname').hide();
+                    $('#tr_thirdname').hide();
+                    $('#tr_entitlement').show();
                 } else if ($(this).val() == "man") {
-                    $('#lastname').show();
-                    $('#firstname').show();
-                    $('#thirdname').show();
-                    $('#entitlement').hide();
+                    $('#tr_lastname').show();
+                    $('#tr_firstname').show();
+                    $('#tr_thirdname').show();
+                    $('#tr_entitlement').hide();
                 } else if ($(this).val() == "rep_man") {
-                    $('#lastname').show();
-                    $('#firstname').show();
-                    $('#thirdname').show();
-                    $('#entitlement').show();
+                    $('#tr_lastname').show();
+                    $('#tr_firstname').show();
+                    $('#tr_thirdname').show();
+                    $('#tr_entitlement').show();
                 } else if ($(this).val() == "rep_company") {
-                    $('#lastname').show();
-                    $('#firstname').show();
-                    $('#thirdname').show();
-                    $('#entitlement').show();
+                    $('#tr_lastname').show();
+                    $('#tr_firstname').show();
+                    $('#tr_thirdname').show();
+                    $('#tr_entitlement').show();
                 }
             });
             // Technique borrowed from http://stackoverflow.com/questions/1944267/how-to-change-the-button-text-of-input-type-file
@@ -129,7 +168,8 @@
         function dialog(title, text) {
             $('#msgbox').text(text);
             $('#msgbox').dialog(
-                    {    title:title,
+                    {
+                        title:title,
                         modal:true,
                         buttons:{"Ok":function () {
                             $(this).dialog("close");
@@ -152,17 +192,17 @@
     </tr>
     <tr>
         <td>
-            <p>Поля отмеченные знаком <img src="/resources/img/attention.gif" width="16" height="16" alt="A!"/>,
+            <p>Поля отмеченные знаком <img src="resources/img/attention.gif" width="16" height="16" alt="A!"/>,
                 обязательны для заполнения</p>
         </td>
     </tr>
     <tr>
         <td>
-            <form accept-charset="UTF-8" id="cmplform" name="cmplform" method="post" action="/sendform">
+            <form id="cmplform">
                 <fieldset>
                     <legend>&nbsp;<strong>Жалоба, sid:&nbsp;<%=request.getSession().getId()%></strong>&nbsp;</legend>
 
-                    <p>Орган в который будет отправлена жалоба: <img src="/resources/img/attention.gif" width="16"
+                    <p>Орган в который будет отправлена жалоба: <img src="resources/img/attention.gif" width="16"
                                                                      height="16" alt="A!"/><br/>
                         <!-- Генерируется из справочной таблицы CMPL_DEPARTMENT -->
                         <select name="department" size="1" id="department">
@@ -172,7 +212,7 @@
                     </p>
                     <p>Наименование органа, предоставляющего государственную услугу, должностного лица органа,
                         предоставляющего государственную услугу, либо федерального государственного служащего, решения и
-                        действия (бездействия) которых обжалуются <img src="/resources/img/attention.gif" width="16"
+                        действия (бездействия) которых обжалуются <img src="resources/img/attention.gif" width="16"
                                                                        height="16" alt="A!"/><br>
                         <input name="dep_name" type="text" id="dep_name" size="96"/>
                     </p>
@@ -198,39 +238,39 @@
 
 
                     <table width="697" border="0">
-                        <tr id="lastname">
+                        <tr id="tr_lastname">
                             <td width="135" align="right" valign="middle">Фамилия: <img
-                                    src="/resources/img/attention.gif" width="16" height="16" alt="A!"/></td>
+                                    src="resources/img/attention.gif" width="16" height="16" alt="A!"/></td>
                             <td width="528" align="left" valign="middle" nowrap="nowrap"><input type="text"
                                                                                                 name="lastname"
                                                                                                 id="lastname"
                                                                                                 required="required"/>
                             </td>
                         </tr>
-                        <tr id="firstname">
-                            <td width="135" align="right" valign="middle">Имя: <img src="/resources/img/attention.gif"
+                        <tr id="tr_firstname">
+                            <td width="135" align="right" valign="middle">Имя: <img src="resources/img/attention.gif"
                                                                                     width="16" height="16" alt="A!"/>
                             </td>
                             <td align="left" valign="middle" nowrap="nowrap"><input type="text" name="firstname"
                                                                                     id="firstname" required="required"/>
                             </td>
                         </tr>
-                        <tr id="thirdname">
+                        <tr id="tr_thirdname">
                             <td width="135" align="right" valign="middle">Отчество: <img
-                                    src="/resources/img/attention.gif" width="16" height="16" alt="A!"/></td>
+                                    src="resources/img/attention.gif" width="16" height="16" alt="A!"/></td>
                             <td align="left" valign="middle" nowrap="nowrap"><input type="text" name="thirdname"
                                                                                     id="thirdname" required="required"/>
                             </td>
                         </tr>
-                        <tr id="entitlement">
+                        <tr id="tr_entitlement">
                             <td width="135" align="right" valign="middle">Наименование: <img
-                                    src="/resources/img/attention.gif" width="16" height="16" alt="A!"/></td>
+                                    src="resources/img/attention.gif" width="16" height="16" alt="A!"/></td>
                             <td align="left" valign="middle" nowrap="nowrap"><input name="entitlement" type="text"
                                                                                     id="entitlement" size="80"
                                                                                     required="required"/></td>
                         </tr>
                         <tr>
-                            <td align="right" valign="middle">Местонахождение: <img src="/resources/img/attention.gif"
+                            <td align="right" valign="middle">Местонахождение: <img src="resources/img/attention.gif"
                                                                                     width="16" height="16" alt="A!"/>
                             </td>
                             <td align="left" valign="middle" nowrap="nowrap"><input name="post_index" type="text"
@@ -245,14 +285,14 @@
                                                                                     id="phone"/></td>
                         </tr>
                         <tr>
-                            <td align="right" valign="middle">Адрес Email: <img src="/resources/img/attention.gif"
+                            <td align="right" valign="middle">Адрес Email: <img src="resources/img/attention.gif"
                                                                                 width="16" height="16" alt="A!"/></td>
                             <td align="left" valign="middle" nowrap="nowrap"><input type="email" name="email" id="email"
-                                                                                    required="required"/></td>
+                                                                                    required="required"  size="80"/></td>
                         </tr>
                     </table>
                     <hr>
-                    <p><strong>Тематика обращения:</strong> <img src="/resources/img/attention.gif" width="16"
+                    <p><strong>Тематика обращения:</strong> <img src="resources/img/attention.gif" width="16"
                                                                  height="16" alt="A!"/></p>
                     <table width="100%" border="0" align="center">
                         <tr>
@@ -260,48 +300,48 @@
                             <!-- Генерируется из справочной таблицы CMPL_CATEGORY -->
 
                             <td width="309" align="left" valign="top"><p>
-                                <input type="radio" name="q" id="q1" value="q1"/>
+                                <input type="radio" name="questionType" id="q1" value="q1"/>
                                 <label for="q1">Вопросы, связанные с государственной регистрацией прав на недвижимое
                                     имущество и сделок с ним и государственным кадастром недвижимости</label> <br/>
-                                <input name="q" type="radio" id="q2" value="q2" checked="checked"/>
+                                <input name="questionType" type="radio" id="q2" value="q2" checked="checked"/>
                                 <label for="q2">Вопросы, связанные с предоставлением информации из ЕГРП и
                                     ГКН</label><br/>
-                                <input type="radio" name="q" id="q3" value="q3"/>
+                                <input type="radio" name="questionType" id="q3" value="q3"/>
                                 <label for="q3">Вопросы срыва сроков предоставления сведений по ранее направленным
                                     запросам и функционированию Портала услуг Росреестра</label><br/>
-                                <input type="radio" name="q" id="q4" value="q4"/>
+                                <input type="radio" name="questionType" id="q4" value="q4"/>
                                 <label for="q4">Вопросы, связанные с деятельностью саморегулируемых организаций
                                     арбитражных управляющих</label><br/>
-                                <input type="radio" name="q" id="q5" value="q5"/>
+                                <input type="radio" name="questionType" id="q5" value="q5"/>
                                 <label for="q5">Вопросы, связанные с кадастровой оценкой объектов
                                     недвижимости</label><br/>
-                                <input type="radio" name="q" id="q6" value="q6"/>
+                                <input type="radio" name="questionType" id="q6" value="q6"/>
                                 <label for="q6">Вопросы, связанные с государственным земельным контролем,
                                     землеустройством и мониторингом земель</label><br/>
-                                <input type="radio" name="q" id="q7" value="q7"/>
+                                <input type="radio" name="questionType" id="q7" value="q7"/>
                                 <label for="q7">Вопросы, связанные с техническим учетом и инвентаризацией объектов
                                     капитального строительства</label></p></td>
                             <td width="309" align="left" valign="top"><p>
-                                <input type="radio" name="q" id="q8" value="q8"/>
+                                <input type="radio" name="questionType" id="q8" value="q8"/>
                                 <label for="q8">Вопросы, связанные с геодезической, картографической и навигационной
                                     деятельностью</label><br/>
-                                <input type="radio" name="q" id="q9" value="q9"/>
+                                <input type="radio" name="questionType" id="q9" value="q9"/>
                                 <label for="q9">Жалобы на организацию работы (отказ в приеме и выдаче документов, время
                                     ожидания в очереди превышает установленное административным регламентом, отсутствие
                                     предварительной записи (плохая организация), некорректное обслуживание заявителя на
                                     приеме, требование внесения платы, не предусмотренной нормативными правовыми актами
                                     Российской Федерации и др.)</label><br/>
-                                <input type="radio" name="q" id="q10" value="q10"/>
+                                <input type="radio" name="questionType" id="q10" value="q10"/>
                                 <label for="q10">Жалобы на работу руководителей (специалистов) территориальных органов
                                     Росреестра</label><br/>
-                                <input type="radio" name="q" id="q11" value="q11"/>
+                                <input type="radio" name="questionType" id="q11" value="q11"/>
                                 <label for="q11">Предложения по совершенствованию деятельности Росреестра и его
                                     территориальных органов</label><br/>
-                                <input type="radio" name="q" id="q12" value="q12"/>
+                                <input type="radio" name="questionType" id="q12" value="q12"/>
                                 <label for="q12">Другие вопросы, относящиеся к компетенции Росреестра</label></p></td>
                         </tr>
                     </table>
-                    <p><strong>Текст обращения:</strong> <img src="/resources/img/attention.gif" width="16" height="16"
+                    <p><strong>Текст обращения:</strong> <img src="resources/img/attention.gif" width="16" height="16"
                                                               alt="A!"/><br/>
                         <textarea name="appeal" id="appeal" cols="96" rows="10" required="required"></textarea>
                         <br/>
@@ -329,15 +369,15 @@
                             <div class="bar" style="width: 0%;"></div>
                         </div>
 
-                        <input id="upload" type="file" name="file" data-url="/fileupload" multiple
+                        <input id="upload" type="file" name="file" data-url="fileupload" multiple
                                style="opacity: 0; filter:alpha(opacity: 0);"><br/>
 
                     </fieldset>
                     </p>
                 </fieldset>
-                <input type="submit" value="Отправить"/>
+                <input id="submit" name="submit" type="submit" value="Отправить"/>
             </form>
-            <div id='msgbox' title='' style='display:none'></div>
+            <div id='msgbox'  title='' style='display:none'></div>
         </td>
     </tr>
 </table>
