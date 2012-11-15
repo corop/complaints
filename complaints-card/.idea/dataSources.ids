@@ -51,6 +51,7 @@
       <column name="COMPLAINT_EMAIL" sqlType="VARCHAR2" length="32" precision="0" nullable="false" jdbcType="12" version="true" />
       <column name="COMPLAINT_APPEAL" sqlType="CLOB" length="4000" precision="0" nullable="true" jdbcType="2005" version="true" />
       <column name="COMPLAINT_INSERTED" sqlType="TIMESTAMP(6)" length="11" precision="6" nullable="false" jdbcType="93" version="true" />
+      <column name="COMPLAINT_SENDED" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3" def="MCA=" version="true" />
       <primary-key name="PK_CMPL_COMPLAINT" columns="COMPLAINT_ID" />
       <foreign-key name="FK_CMPL_COM_REL_CATEG_CMPL_CAT" columns="CATEGORY_ID" ref-table="CMPL_CATEGORY" ref-schema="CMPL" ref-catalog="" ref-columns="CATEGORY_ID" update-rule="0" delete-rule="1" deferrability="2" />
       <foreign-key name="FK_CMPL_COM_REL_AUTHO_CMPL_COM" columns="COMPLAINT_AUTHOR_ID" ref-table="CMPL_COMPLAINT_AUTHOR" ref-schema="CMPL" ref-catalog="" ref-columns="COMPLAINT_AUTHOR_ID" update-rule="0" delete-rule="1" deferrability="2" />

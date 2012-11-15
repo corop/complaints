@@ -1,5 +1,6 @@
 package ru.fccland.complaints.card.service.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailParseException;
@@ -21,8 +22,8 @@ import java.io.File;
  * To change this template use File | Settings | File Templates.
  */
 @Service("mailService")
-public class MailService {
-
+public class MailServiceImpl {
+    protected static Logger log = Logger.getLogger("mail-service");
     @Autowired
     private MailSender mailSender;
 
@@ -38,27 +39,28 @@ public class MailService {
             // use the true flag to indicate you need a multipart message
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo(to);
-
             helper.setText(subject);
             helper.setFrom(from);
 
-            for (int i = 0; i < attachFileNames.length; i++) {
-                String attachFileName = attachFileNames[i];
-                FileSystemResource file = new FileSystemResource(new File(attachFileName));
-                try {
-                    helper.addAttachment(file.getFilename(), file);
-                } catch (javax.mail.MessagingException e) {
-                    throw new MailParseException(e);
+            if (attachFileNames != null)
+                for (int i = 0; i < attachFileNames.length; i++) {
+                    String attachFileName = attachFileNames[i];
+                    FileSystemResource file = new FileSystemResource(new File(attachFileName));
+                    try {
+                        helper.addAttachment(file.getFilename(), file);
+                    } catch (javax.mail.MessagingException e) {
+                        log.error("Error send mail", e);
+                        throw new MailParseException(e);
+                    }
                 }
-            }
             sender.send(message);
         } catch (MessagingException e) {
+            log.error("Error send mail", e);
             throw new MailParseException(e);
         }
     }
 
     public void sendAlertMail(String alert) {
-
         SimpleMailMessage mailMessage = new SimpleMailMessage(alertMailMessage);
         mailMessage.setText(alert);
         mailSender.send(mailMessage);
