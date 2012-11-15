@@ -22,6 +22,12 @@ public class DocTypeDAOImpl implements DocTypeDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
+    public DocType get(Long id) {
+        return (DocType) sessionFactory.getCurrentSession().load(
+                DocType.class, id);
+    }
+
     @Transactional
     @Override
     public void add(DocType docType) {
@@ -37,8 +43,7 @@ public class DocTypeDAOImpl implements DocTypeDAO {
     @Transactional
     @Override
     public void remove(Long id) {
-        DocType docType = (DocType) sessionFactory.getCurrentSession().load(
-                DocType.class, id);
+        DocType docType = get(id);
         if (null != docType) {
             sessionFactory.getCurrentSession().delete(docType);
         }

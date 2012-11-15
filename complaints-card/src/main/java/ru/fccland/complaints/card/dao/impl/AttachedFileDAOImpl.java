@@ -22,6 +22,12 @@ public class AttachedFileDAOImpl implements AttachedFileDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
+    public AttachedFile get(Long id) {
+        return (AttachedFile) sessionFactory.getCurrentSession().load(
+                AttachedFile.class, id);
+    }
+
     @Transactional
     @Override
     public void add(AttachedFile attachedFile) {
@@ -37,8 +43,7 @@ public class AttachedFileDAOImpl implements AttachedFileDAO {
     @Transactional
     @Override
     public void remove(Long id) {
-        AttachedFile attachedFile = (AttachedFile) sessionFactory.getCurrentSession().load(
-                AttachedFile.class, id);
+        AttachedFile attachedFile = get(id);
         if (null != attachedFile) {
             sessionFactory.getCurrentSession().delete(attachedFile);
         }

@@ -12,6 +12,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface AttachedFileService {
+    public AttachedFile get(Long id);
     public void add(AttachedFile attachedFile);
     public List<AttachedFile> list();
     public void remove(Long id);

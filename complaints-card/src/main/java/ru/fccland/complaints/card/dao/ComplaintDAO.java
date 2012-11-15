@@ -2,6 +2,7 @@ package ru.fccland.complaints.card.dao;
 
 import ru.fccland.complaints.card.domain.Complaint;
 
+
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ComplaintDAO {
+    public Complaint get(Long id);
     public void add(Complaint complaint);
     public List<Complaint> list();
     public void remove(Long id);

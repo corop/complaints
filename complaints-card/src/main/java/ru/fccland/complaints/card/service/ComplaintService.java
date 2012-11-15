@@ -12,6 +12,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface ComplaintService {
+    public Complaint get(Long id);
     public void add(Complaint complaint);
     public List<Complaint> list();
     public void remove(Long id);

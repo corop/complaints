@@ -21,6 +21,12 @@ public class ComplaintAuthorDAOImpl implements ComplaintAuthorDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
+    public ComplaintAuthor get(Long id) {
+        return  (ComplaintAuthor) sessionFactory.getCurrentSession().load(
+                ComplaintAuthor.class, id);
+    }
+
     @Transactional
     @Override
     public void add(ComplaintAuthor complaintAuthor) {
@@ -36,8 +42,7 @@ public class ComplaintAuthorDAOImpl implements ComplaintAuthorDAO {
     @Transactional
     @Override
     public void remove(Long id) {
-        ComplaintAuthor complaintAuthor  = (ComplaintAuthor) sessionFactory.getCurrentSession().load(
-                ComplaintAuthor.class, id);
+        ComplaintAuthor complaintAuthor  = get(id);
         if (null != complaintAuthor) {
             sessionFactory.getCurrentSession().delete(complaintAuthor);
         }

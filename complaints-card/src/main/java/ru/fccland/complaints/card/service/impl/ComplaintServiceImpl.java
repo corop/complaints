@@ -23,6 +23,12 @@ public class ComplaintServiceImpl implements ComplaintService {
 
     @Transactional
     @Override
+    public Complaint get(Long id) {
+        return complaintDAO.get(id);
+    }
+
+    @Transactional
+    @Override
     public void add(Complaint complaint) {
         complaintDAO.add(complaint);
     }

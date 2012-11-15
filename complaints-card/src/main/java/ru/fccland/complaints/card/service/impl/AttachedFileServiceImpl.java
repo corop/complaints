@@ -23,6 +23,12 @@ public class AttachedFileServiceImpl implements AttachedFileService {
 
     @Transactional
     @Override
+    public AttachedFile get(Long id) {
+        return  attachedFileDAO.get(id);
+    }
+
+    @Transactional
+    @Override
     public void add(AttachedFile attachedFile) {
         attachedFileDAO.add(attachedFile);
     }

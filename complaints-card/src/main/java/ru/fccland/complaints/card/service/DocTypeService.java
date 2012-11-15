@@ -12,6 +12,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface DocTypeService {
+    public DocType get(Long id);
     public void add(DocType docType);
     public List<DocType> list();
     public void remove(Long id);

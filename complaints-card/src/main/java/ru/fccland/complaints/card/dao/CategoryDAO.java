@@ -12,6 +12,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface CategoryDAO {
+    public Category get(Long id);
     public void add(Category category);
     public List<Category> list();
     public void remove(Long id);

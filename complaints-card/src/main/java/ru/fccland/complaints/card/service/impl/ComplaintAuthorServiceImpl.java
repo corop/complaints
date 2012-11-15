@@ -23,6 +23,12 @@ public class ComplaintAuthorServiceImpl implements ComplaintAuthorService {
 
     @Transactional
     @Override
+    public ComplaintAuthor get(Long id) {
+        return complaintAuthorDAO.get(id);
+    }
+
+    @Transactional
+    @Override
     public void add(ComplaintAuthor complaintAuthor) {
         complaintAuthorDAO.add(complaintAuthor);
     }

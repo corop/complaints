@@ -13,6 +13,7 @@ import java.util.List;
  */
 
 public interface DocTypeDAO  {
+    public DocType get(Long id);
     public void add(DocType docType);
     public List<DocType> list();
     public void remove(Long id);

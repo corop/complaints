@@ -23,6 +23,11 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
+    public Category get(Long id) {
+        return (Category) sessionFactory.getCurrentSession().load(Category.class, id);
+    }
+
     @Transactional
     @Override
     public void add(Category category) {
@@ -38,10 +43,11 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Transactional
     @Override
     public void remove(Long id) {
-        Category category = (Category) sessionFactory.getCurrentSession().load(
-                Category.class, id);
+        Category category = get(id);
         if (null != category) {
+            sessionFactory.getCurrentSession().getTransaction().begin();
             sessionFactory.getCurrentSession().delete(category);
+            sessionFactory.getCurrentSession().getTransaction().commit();
         }
     }
 }

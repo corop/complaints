@@ -3,6 +3,7 @@ package dao;
 import org.hibernate.Session;
 import ru.fccland.complaints.card.controller.ComplaintsController;
 import ru.fccland.complaints.card.domain.Category;
+import ru.fccland.complaints.card.domain.ComplaintAuthor;
 import ru.fccland.complaints.card.domain.Department;
 import ru.fccland.complaints.card.util.HibernateUtil;
 
@@ -42,9 +43,13 @@ public class TestHibernateSession {
             System.out.println("department = " + department);
         }
 
-        session.getTransaction().commit();
+        System.out.println("***********************************************");
 
-        System.out.println("ComplaintsController.getSessionId() = " + ComplaintsController.getSessionId());
-        System.out.println("ComplaintsController.getSessionId() = " + ComplaintsController.getSessionId());
+        Category category = (Category)session.load(Category.class, new Long(4));
+        System.out.println("category = " + category);
+        ComplaintAuthor complaintAuthor = (ComplaintAuthor)session.load(ComplaintAuthor.class, new Long(1));
+        System.out.println("complaintAuthor = " + complaintAuthor);
+
+        session.getTransaction().commit();
     }
 }

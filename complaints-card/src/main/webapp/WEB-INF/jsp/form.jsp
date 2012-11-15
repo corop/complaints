@@ -220,16 +220,16 @@
                     <table width="630" border="0">
                         <tr>
                             <td width="135" align="right"><strong>Кем являетесь:</strong></td>
-                            <td width="218"><input name="who" type="radio" id="man" value="man" checked="checked"/>
+                            <td width="218"><input name="who" type="radio" id="man" value="1" checked="checked"/>
                                 <label for="man">Физическое лицо</label></td>
-                            <td width="263"><input type="radio" name="who" id="rep_man" value="rep_man"/>
+                            <td width="263"><input type="radio" name="who" id="rep_man" value="3"/>
                                 <label for="rep_man">Представитель физического лица</label></td>
                         </tr>
                         <tr>
                             <td>&nbsp;</td>
-                            <td><input type="radio" name="who" id="company" value="company"/>
+                            <td><input type="radio" name="who" id="company" value="2"/>
                                 <label for="company">Юридическое лицо</label></td>
-                            <td><input type="radio" name="who" id="rep_company" value="rep_company"/>
+                            <td><input type="radio" name="who" id="rep_company" value="4"/>
                                 <label for="rep_company">Представитель юридического лица</label></td>
 
                         </tr>
@@ -300,44 +300,44 @@
                             <!-- Генерируется из справочной таблицы CMPL_CATEGORY -->
 
                             <td width="309" align="left" valign="top"><p>
-                                <input type="radio" name="questionType" id="q1" value="q1"/>
+                                <input type="radio" name="questionType" id="q1" value="1"/>
                                 <label for="q1">Вопросы, связанные с государственной регистрацией прав на недвижимое
                                     имущество и сделок с ним и государственным кадастром недвижимости</label> <br/>
-                                <input name="questionType" type="radio" id="q2" value="q2" checked="checked"/>
+                                <input name="questionType" type="radio" id="q2" value="2" checked="checked"/>
                                 <label for="q2">Вопросы, связанные с предоставлением информации из ЕГРП и
                                     ГКН</label><br/>
-                                <input type="radio" name="questionType" id="q3" value="q3"/>
+                                <input type="radio" name="questionType" id="q3" value="3"/>
                                 <label for="q3">Вопросы срыва сроков предоставления сведений по ранее направленным
                                     запросам и функционированию Портала услуг Росреестра</label><br/>
-                                <input type="radio" name="questionType" id="q4" value="q4"/>
+                                <input type="radio" name="questionType" id="q4" value="4"/>
                                 <label for="q4">Вопросы, связанные с деятельностью саморегулируемых организаций
                                     арбитражных управляющих</label><br/>
-                                <input type="radio" name="questionType" id="q5" value="q5"/>
+                                <input type="radio" name="questionType" id="q5" value="5"/>
                                 <label for="q5">Вопросы, связанные с кадастровой оценкой объектов
                                     недвижимости</label><br/>
-                                <input type="radio" name="questionType" id="q6" value="q6"/>
+                                <input type="radio" name="questionType" id="q6" value="6"/>
                                 <label for="q6">Вопросы, связанные с государственным земельным контролем,
                                     землеустройством и мониторингом земель</label><br/>
-                                <input type="radio" name="questionType" id="q7" value="q7"/>
+                                <input type="radio" name="questionType" id="q7" value="7"/>
                                 <label for="q7">Вопросы, связанные с техническим учетом и инвентаризацией объектов
                                     капитального строительства</label></p></td>
                             <td width="309" align="left" valign="top"><p>
-                                <input type="radio" name="questionType" id="q8" value="q8"/>
+                                <input type="radio" name="questionType" id="q8" value="8"/>
                                 <label for="q8">Вопросы, связанные с геодезической, картографической и навигационной
                                     деятельностью</label><br/>
-                                <input type="radio" name="questionType" id="q9" value="q9"/>
+                                <input type="radio" name="questionType" id="q9" value="9"/>
                                 <label for="q9">Жалобы на организацию работы (отказ в приеме и выдаче документов, время
                                     ожидания в очереди превышает установленное административным регламентом, отсутствие
                                     предварительной записи (плохая организация), некорректное обслуживание заявителя на
                                     приеме, требование внесения платы, не предусмотренной нормативными правовыми актами
                                     Российской Федерации и др.)</label><br/>
-                                <input type="radio" name="questionType" id="q10" value="q10"/>
+                                <input type="radio" name="questionType" id="q10" value="10"/>
                                 <label for="q10">Жалобы на работу руководителей (специалистов) территориальных органов
                                     Росреестра</label><br/>
-                                <input type="radio" name="questionType" id="q11" value="q11"/>
+                                <input type="radio" name="questionType" id="q11" value="11"/>
                                 <label for="q11">Предложения по совершенствованию деятельности Росреестра и его
                                     территориальных органов</label><br/>
-                                <input type="radio" name="questionType" id="q12" value="q12"/>
+                                <input type="radio" name="questionType" id="q12" value="12"/>
                                 <label for="q12">Другие вопросы, относящиеся к компетенции Росреестра</label></p></td>
                         </tr>
                     </table>
@@ -377,7 +377,7 @@
                 </fieldset>
                 <input id="submit" name="submit" type="submit" value="Отправить"/>
             </form>
-            <div id='msgbox'  title='' style='display:none'></div>
+            <div id='msgbox' title='' style='display:none'></div>
         </td>
     </tr>
 </table>

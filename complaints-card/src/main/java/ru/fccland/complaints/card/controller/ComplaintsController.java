@@ -1,6 +1,7 @@
 package ru.fccland.complaints.card.controller;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.fccland.complaints.card.domain.Message;
 import ru.fccland.complaints.card.domain.UploadedFile;
 import ru.fccland.complaints.card.responces.StatusResponse;
+import ru.fccland.complaints.card.service.CategoryService;
+import ru.fccland.complaints.card.service.ComplaintAuthorService;
+import ru.fccland.complaints.card.service.DepartmentService;
+import ru.fccland.complaints.card.service.DocTypeService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,6 +38,15 @@ public class ComplaintsController {
 
     @Value("${cmpl.temp.dir}")
     private String tempDirectoryName;
+
+    @Autowired
+    private CategoryService categoryService;
+    @Autowired
+    private ComplaintAuthorService complaintAuthorService;
+    @Autowired
+    private DepartmentService departmentService;
+    @Autowired
+    private DocTypeService docTypeService;
 
 
     private String getHttpSessionId() {
@@ -62,6 +76,9 @@ public class ComplaintsController {
         String sessionId = getHttpSessionId();
         if(log.isDebugEnabled())
             log.debug("ComplaintsController.sendform(sid="+sessionId+"): " + message);
+
+        //categoryService
+
         return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
     }
 
