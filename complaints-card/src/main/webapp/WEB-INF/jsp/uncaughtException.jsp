@@ -11,12 +11,11 @@
 
 <%
     try {
-        // The Servlet spec guarantees this attribute will be available
+
         Throwable exception = (Throwable) request.getAttribute("javax.servlet.error.exception");
 
         if (exception != null) {
             if (exception instanceof ServletException) {
-                // It's a ServletException: we should extract the root cause
                 ServletException sex = (ServletException) exception;
                 Throwable rootCause = sex.getRootCause();
                 if (rootCause == null)
@@ -25,15 +24,13 @@
                 rootCause.printStackTrace(new java.io.PrintWriter(out));
             }
             else {
-                // It's not a ServletException, so we'll just show it
                 exception.printStackTrace(new java.io.PrintWriter(out));
             }
         }
         else  {
-            out.println("No error information available");
+            out.println("Информация об ошибке не доступна");
         }
 
-        // Display cookies
         out.println("\nCookies:\n");
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -41,7 +38,6 @@
                 out.println(cookies[i].getName() + "=[" + cookies[i].getValue() + "]");
             }
         }
-
     } catch (Exception ex) {
         ex.printStackTrace(new java.io.PrintWriter(out));
     }

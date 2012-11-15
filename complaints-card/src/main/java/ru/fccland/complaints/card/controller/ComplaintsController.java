@@ -160,7 +160,7 @@ public class ComplaintsController {
         UploadedFile u = new UploadedFile();
         u.setName(file.getOriginalFilename());
         u.setSize(Long.valueOf(file.getSize()).intValue());
-        u.setDelete_url("/delete/" + sessionId + "/" + file.getOriginalFilename());
+        u.setDelete_url("/delete/complaint/attach/" + sessionId + "/" + file.getOriginalFilename());
         uploadedFiles.add(u);
         return uploadedFiles;
     }
