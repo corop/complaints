@@ -39,6 +39,37 @@
 
         $(document).ready(function () {
 
+            $("#post_index")
+                    .val("Индекс")
+                    .css("color", "#ccc")
+                    .focus(function(){
+                        $(this).css("color", "black");
+                        if ($(this).val() == "Индекс") {
+                            $(this).val("");
+                        }
+                    }).blur(function(){
+                        $(this).css("color", "#ccc");
+                        if ($(this).val() == "") {
+                            $(this).val("Индекс");
+                        }
+                    });
+
+            $("#post_address")
+                    .val("Почтовый адрес")
+                    .css("color", "#ccc")
+                    .focus(function(){
+                        $(this).css("color", "black");
+                        if ($(this).val() == "Почтовый адрес") {
+                            $(this).val("");
+                        }
+                    }).blur(function(){
+                        $(this).css("color", "#ccc");
+                        if ($(this).val() == "") {
+                            $(this).val("Почтовый адрес");
+                        }
+                    });
+
+
             $('input:button').button();
             $('#submit').button();
 
