@@ -22,26 +22,23 @@ public class DocTypeDAOImpl implements DocTypeDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
+    @Transactional
     public DocType get(Long id) {
         return (DocType) sessionFactory.getCurrentSession().load(
                 DocType.class, id);
     }
 
     @Transactional
-    @Override
     public void add(DocType docType) {
         sessionFactory.getCurrentSession().save(docType);
     }
 
     @Transactional
-    @Override
     public List<DocType> list() {
         return sessionFactory.getCurrentSession().createQuery("FROM DocType").list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         DocType docType = get(id);
         if (null != docType) {

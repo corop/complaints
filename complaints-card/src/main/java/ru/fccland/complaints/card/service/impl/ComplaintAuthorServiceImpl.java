@@ -22,25 +22,21 @@ public class ComplaintAuthorServiceImpl implements ComplaintAuthorService {
     private ComplaintAuthorDAO complaintAuthorDAO;
 
     @Transactional
-    @Override
     public ComplaintAuthor get(Long id) {
         return complaintAuthorDAO.get(id);
     }
 
     @Transactional
-    @Override
     public void add(ComplaintAuthor complaintAuthor) {
         complaintAuthorDAO.add(complaintAuthor);
     }
 
     @Transactional
-    @Override
     public List<ComplaintAuthor> list() {
         return complaintAuthorDAO.list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         complaintAuthorDAO.remove(id);
     }

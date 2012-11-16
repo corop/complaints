@@ -23,26 +23,23 @@ public class DepartmentDAOImpl implements DepartmentDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
+    @Transactional
     public Department get(Long id) {
         return  (Department) sessionFactory.getCurrentSession().load(
                 Department.class, id);
     }
 
     @Transactional
-    @Override
     public void add(Department department) {
         sessionFactory.getCurrentSession().save(department);
     }
 
     @Transactional
-    @Override
     public List<Department> list() {
         return sessionFactory.getCurrentSession().createQuery("FROM Department").list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         Department department = get(id);
         if (null != department) {

@@ -23,25 +23,21 @@ public class DepartmentServiceImpl implements DepartmentService {
     private DepartmentDAO departmentDAO;
 
     @Transactional
-    @Override
     public Department get(Long id) {
         return departmentDAO.get(id);
     }
 
     @Transactional
-    @Override
     public void add(Department department) {
         departmentDAO.add(department);
     }
 
     @Transactional
-    @Override
     public List<Department> list() {
         return departmentDAO.list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         departmentDAO.remove(id);
     }

@@ -25,7 +25,7 @@ public class MailSenderTask {
     protected static Logger log = Logger.getLogger("mail-sender-task");
 
     @Async
-    @Scheduled(fixedDelay=5*1000)
+    @Scheduled(fixedDelay=30*60*1000)    // 30 minutes
     public void run() {
         log.info("MailSenderTask.run()");
         Session session = HibernateUtil.getSessionFactory().openSession();

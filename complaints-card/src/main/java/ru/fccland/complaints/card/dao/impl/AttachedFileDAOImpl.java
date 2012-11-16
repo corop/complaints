@@ -22,26 +22,23 @@ public class AttachedFileDAOImpl implements AttachedFileDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
+    @Transactional
     public AttachedFile get(Long id) {
         return (AttachedFile) sessionFactory.getCurrentSession().load(
                 AttachedFile.class, id);
     }
 
     @Transactional
-    @Override
     public void add(AttachedFile attachedFile) {
         sessionFactory.getCurrentSession().save(attachedFile);
     }
 
     @Transactional
-    @Override
     public List<AttachedFile> list() {
         return sessionFactory.getCurrentSession().createQuery("FROM AttachedFile").list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         AttachedFile attachedFile = get(id);
         if (null != attachedFile) {

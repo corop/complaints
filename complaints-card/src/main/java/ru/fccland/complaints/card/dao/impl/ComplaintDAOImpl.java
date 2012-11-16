@@ -21,26 +21,23 @@ public class ComplaintDAOImpl implements ComplaintDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
+    @Transactional
     public Complaint get(Long id) {
         return  (Complaint) sessionFactory.getCurrentSession().load(
                 Complaint.class, id);
     }
 
     @Transactional
-    @Override
     public void add(Complaint complaint) {
         sessionFactory.getCurrentSession().save(complaint);
     }
 
     @Transactional
-    @Override
     public List<Complaint> list() {
         return sessionFactory.getCurrentSession().createQuery("FROM Complaint").list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         Complaint complaint  =get(id);
         if (null != complaint) {

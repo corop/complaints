@@ -22,25 +22,21 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryDAO categoryDAO;
 
     @Transactional
-    @Override
     public Category get(Long id) {
         return categoryDAO.get(id);
     }
 
     @Transactional
-    @Override
     public void add(Category category) {
         categoryDAO.add(category);
     }
 
     @Transactional
-    @Override
     public List<Category> list() {
         return categoryDAO.list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         categoryDAO.remove(id);
     }

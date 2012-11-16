@@ -22,25 +22,21 @@ public class DocTypeServiceImpl implements DocTypeService {
     private DocTypeDAO docTypeDAO;
 
     @Transactional
-    @Override
     public DocType get(Long id) {
         return docTypeDAO.get(id);
     }
 
     @Transactional
-    @Override
     public void add(DocType docType) {
         docTypeDAO.add(docType);
     }
 
     @Transactional
-    @Override
     public List<DocType> list() {
         return docTypeDAO.list();
     }
 
     @Transactional
-    @Override
     public void remove(Long id) {
         docTypeDAO.remove(id);
     }
