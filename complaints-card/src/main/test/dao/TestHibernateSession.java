@@ -1,5 +1,6 @@
 package dao;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import ru.fccland.complaints.card.controller.ComplaintsController;
 import ru.fccland.complaints.card.dao.impl.CategoryDAOImpl;
@@ -50,12 +51,17 @@ public class TestHibernateSession {
         }
 
         System.out.println("***********************************************");
-        /*
-        Category category = (Category)session.load(Category.class, new Long(4));
-        System.out.println("category = " + category);
-        ComplaintAuthor complaintAuthor = (ComplaintAuthor)session.load(ComplaintAuthor.class, new Long(1));
-        System.out.println("complaintAuthor = " + complaintAuthor);
-        */
+
+        Query query =   session.createQuery("FROM Complaint WHERE sended = :sendedFlag");
+        query.setParameter("sendedFlag", new Long(0L));
+        List<Complaint> complaints = query.list();
+
+        if(complaints != null && !complaints.isEmpty())
+            for (Complaint complaint : complaints) {
+                System.out.println("Start send complaint = " + complaint);
+            }
+        else
+            System.out.println("No new complaint for send via email");
 
         session.getTransaction().commit();
     }

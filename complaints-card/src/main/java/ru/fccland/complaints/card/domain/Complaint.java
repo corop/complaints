@@ -219,22 +219,22 @@ public class Complaint  implements Serializable {
     public String toString() {
         return "Complaint{" +
                 "id=" + id +
-                ", department=" + department +
-                ", category=" + category +
-                ", complaintAuthor=" + complaintAuthor +
-                ", httpSessionId='" + httpSessionId + '\'' +
-                ", govName='" + govName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", thirdName='" + thirdName + '\'' +
-                ", company='" + company + '\'' +
-                ", postIndex='" + postIndex + '\'' +
-                ", postAddress='" + postAddress + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", inserted=" + inserted +
-                ", sended=" + sended +
-                ", appeal='" + appeal + '\'' +
+                 "\n, department=" + department +
+                 "\n, category=" + category +
+                 "\n, complaintAuthor=" + complaintAuthor +
+                 "\n, httpSessionId='" + httpSessionId + '\'' +
+                 "\n, govName='" + govName + '\'' +
+                 "\n, firstName='" + firstName + '\'' +
+                 "\n, lastName='" + lastName + '\'' +
+                 "\n, thirdName='" + thirdName + '\'' +
+                 "\n, company='" + company + '\'' +
+                 "\n, postIndex='" + postIndex + '\'' +
+                 "\n, postAddress='" + postAddress + '\'' +
+                 "\n, phone='" + phone + '\'' +
+                 "\n, email='" + email + '\'' +
+                 "\n, inserted=" + inserted +
+                 "\n, sended=" + sended +
+                 "\n, appeal='" + appeal + '\'' +
                 '}';
     }
 }

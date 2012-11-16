@@ -215,7 +215,7 @@
                         предоставляющего государственную услугу, либо федерального государственного служащего, решения и
                         действия (бездействия) которых обжалуются <img src="resources/img/attention.gif" width="16"
                                                                        height="16" alt="A!"/><br>
-                        <input name="dep_name" type="text" id="dep_name" size="96"/>
+                        <input name="dep_name" type="text" id="dep_name" size="96" required="required"/>
                     </p>
                     <hr>
                     <table width="630" border="0">

@@ -100,8 +100,8 @@ public class ComplaintsController {
             complaint.setCategory(category);
             complaint.setAppeal(message.getAppeal());
             complaint.setHttpSessionId(sessionId);
-            // complaint.setInserted(new Date()); // setup in trigger ON INSERT
-           //  complaint.setSended(0L); default 0L
+            //complaint.setInserted(new Date());
+            complaint.setSended(0L);
             complaintService.add(complaint);
             return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
         } catch (Exception e) {
