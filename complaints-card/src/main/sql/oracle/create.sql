@@ -69,6 +69,7 @@ create table CMPL_COMPLAINT
    COMPLAINT_AUTHOR_ID  INTEGER,
    CATEGORY_ID          INTEGER              not null,
    HTTP_SESSION_ID   VARCHAR2(64)        not null,
+   CLIENT_IP   VARCHAR2(32)        not null,
    COMPLAINT_GOV_NAME   VARCHAR2(128)        not null,
    COMPLAINT_FNAME      VARCHAR2(32),
    COMPLAINT_LNAME      VARCHAR2(32),
@@ -125,6 +126,14 @@ create index INDEX_COMPLAINT_EMAIL on CMPL_COMPLAINT (
 create index INDEX_COMPLAINT_HTTP_SESSION_I on CMPL_COMPLAINT (
    HTTP_SESSION_ID ASC
 );
+
+/*==============================================================*/
+/* Index: INDEX_CLIENT_IP                                       */
+/*==============================================================*/
+create index INDEX_CLIENT_IP on CMPL_COMPLAINT (
+   CLIENT_IP ASC
+);
+
 
 
 /*==============================================================*/
@@ -217,9 +226,15 @@ ON CMPL_COMPLAINT
 REFERENCING NEW AS NEW OLD AS OLD
 FOR EACH ROW
 begin
+
   if :new.COMPLAINT_INSERTED is null then
     :new.COMPLAINT_INSERTED := sysdate;
   end if;
+
+  if :new.COMPLAINT_SENDED is null then
+    :new.COMPLAINT_SENDED := 0;
+  end if;
+
   if :new.COMPLAINT_ID is null then
     select CMPL_SEQ_COMPLAINT.NEXTVAL into :new.COMPLAINT_ID
      from dual;

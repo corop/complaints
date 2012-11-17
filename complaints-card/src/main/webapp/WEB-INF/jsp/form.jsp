@@ -89,7 +89,7 @@
                             post_address: $('#post_address').val(),
                             phone: $('#phone').val(),
                             email: $('#email').val(),
-                            category: $('input[name=category]:checked').val(),
+                            category: $('#categories').val(),
                             appeal: $('#appeal').val()
                         },
                         function(result) {
@@ -111,6 +111,17 @@
                             //console.log(responce.data[i].name);
                         }
                         $("select#department").html(options);
+                    }, "json");
+
+            $.get("ref/categories",
+                    function (responce) {
+                        var select = $('#categories').empty();
+                        var options = '';
+                        for (var i = 0; i < responce.data.length; i++) {
+                            options += '<option value="' + responce.data[i].id + '">' + responce.data[i].name + '</option>';
+                            //console.log(responce.data[i].name);
+                        }
+                        $("select#categories").html(options);
                     }, "json");
 
             /* file uploader */
@@ -326,53 +337,10 @@
                     <hr>
                     <p><strong>Тематика обращения:</strong> <img src="resources/img/attention.gif" width="16"
                                                                  height="16" alt="A!"/></p>
-                    <table width="100%" border="0" align="center">
-                        <tr>
-
                             <!-- Генерируется из справочной таблицы CMPL_CATEGORY -->
-
-                            <td width="309" align="left" valign="top"><p>
-                                <input type="radio" name="category" id="q1" value="1"/>
-                                <label for="q1">Вопросы, связанные с государственной регистрацией прав на недвижимое
-                                    имущество и сделок с ним и государственным кадастром недвижимости</label> <br/>
-                                <input name="category" type="radio" id="q2" value="2" checked="checked"/>
-                                <label for="q2">Вопросы, связанные с предоставлением информации из ЕГРП и
-                                    ГКН</label><br/>
-                                <input type="radio" name="category" id="q3" value="3"/>
-                                <label for="q3">Вопросы срыва сроков предоставления сведений по ранее направленным
-                                    запросам и функционированию Портала услуг Росреестра</label><br/>
-                                <input type="radio" name="category" id="q4" value="4"/>
-                                <label for="q4">Вопросы, связанные с деятельностью саморегулируемых организаций
-                                    арбитражных управляющих</label><br/>
-                                <input type="radio" name="category" id="q5" value="5"/>
-                                <label for="q5">Вопросы, связанные с кадастровой оценкой объектов
-                                    недвижимости</label><br/>
-                                <input type="radio" name="category" id="q6" value="6"/>
-                                <label for="q6">Вопросы, связанные с государственным земельным контролем,
-                                    землеустройством и мониторингом земель</label><br/>
-                                <input type="radio" name="category" id="q7" value="7"/>
-                                <label for="q7">Вопросы, связанные с техническим учетом и инвентаризацией объектов
-                                    капитального строительства</label></p></td>
-                            <td width="309" align="left" valign="top"><p>
-                                <input type="radio" name="category" id="q8" value="8"/>
-                                <label for="q8">Вопросы, связанные с геодезической, картографической и навигационной
-                                    деятельностью</label><br/>
-                                <input type="radio" name="category" id="q9" value="9"/>
-                                <label for="q9">Жалобы на организацию работы (отказ в приеме и выдаче документов, время
-                                    ожидания в очереди превышает установленное административным регламентом, отсутствие
-                                    предварительной записи (плохая организация), некорректное обслуживание заявителя на
-                                    приеме, требование внесения платы, не предусмотренной нормативными правовыми актами
-                                    Российской Федерации и др.)</label><br/>
-                                <input type="radio" name="category" id="q10" value="10"/>
-                                <label for="q10">Жалобы на работу руководителей (специалистов) территориальных органов
-                                    Росреестра</label><br/>
-                                <input type="radio" name="category" id="q11" value="11"/>
-                                <label for="q11">Предложения по совершенствованию деятельности Росреестра и его
-                                    территориальных органов</label><br/>
-                                <input type="radio" name="category" id="q12" value="12"/>
-                                <label for="q12">Другие вопросы, относящиеся к компетенции Росреестра</label></p></td>
-                        </tr>
-                    </table>
+                            <select name="categories" size="1" id="categories" style="word-wrap:break-word;width:700px;">
+                                <option id="-1" value="-1">Данные не загружены</option>
+                            </select>
                     <p><strong>Текст обращения:</strong> <img src="resources/img/attention.gif" width="16" height="16"
                                                               alt="A!"/><br/>
                         <textarea name="appeal" id="appeal" cols="96" rows="10" required="required"></textarea>

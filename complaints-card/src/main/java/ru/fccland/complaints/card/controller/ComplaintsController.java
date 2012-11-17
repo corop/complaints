@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 import ru.fccland.complaints.card.domain.*;
 import ru.fccland.complaints.card.responces.StatusResponse;
 import ru.fccland.complaints.card.service.*;
@@ -16,7 +15,6 @@ import ru.fccland.complaints.card.service.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -100,8 +98,9 @@ public class ComplaintsController {
             complaint.setCategory(category);
             complaint.setAppeal(message.getAppeal());
             complaint.setHttpSessionId(sessionId);
+            complaint.setClientIp(getRemoteAddress());
             //complaint.setInserted(new Date());
-            complaint.setSended(0L);
+            // complaint.setSended(0L);
             complaintService.add(complaint);
             return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
         } catch (Exception e) {

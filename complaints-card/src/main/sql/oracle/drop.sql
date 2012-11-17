@@ -42,6 +42,8 @@ drop table CMPL_CATEGORY cascade constraints;
 
 drop index INDEX_COMPLAINT_EMAIL;
 
+drop index INDEX_CLIENT_IP;
+
 drop index INDEX_COMPLAINT_INSERTED;
 
 drop index INDEX_COMPLAINT_HTTP_SESSION_I;

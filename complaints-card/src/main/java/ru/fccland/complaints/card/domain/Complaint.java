@@ -30,6 +30,8 @@ public class Complaint  implements Serializable {
     private ComplaintAuthor complaintAuthor;
     @Column(name="HTTP_SESSION_ID")
     private String httpSessionId;
+    @Column(name="CLIENT_IP")
+    private String clientIp;
     @Column(name="COMPLAINT_GOV_NAME")
     private String govName;
     @Column(name="COMPLAINT_FNAME")
@@ -59,12 +61,16 @@ public class Complaint  implements Serializable {
     public Complaint() {
     }
 
-    public Complaint(Long id, Department department, Category category, ComplaintAuthor complaintAuthor, String httpSessionId, String govName, String firstName, String lastName, String thirdName, String company, String postIndex, String postAddress, String phone, String email, Date inserted, Long sended, String appeal) {
+    public Complaint(Long id, Department department, Category category, ComplaintAuthor complaintAuthor,
+                     String httpSessionId, String clientIp, String govName, String firstName, String lastName,
+                     String thirdName, String company, String postIndex, String postAddress, String phone,
+                     String email, Date inserted, Long sended, String appeal) {
         this.id = id;
         this.department = department;
         this.category = category;
         this.complaintAuthor = complaintAuthor;
         this.httpSessionId = httpSessionId;
+        this.clientIp = clientIp;
         this.govName = govName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -117,6 +123,14 @@ public class Complaint  implements Serializable {
 
     public void setHttpSessionId(String httpSessionId) {
         this.httpSessionId = httpSessionId;
+    }
+
+    public String getClientIp() {
+        return clientIp;
+    }
+
+    public void setClientIp(String clientIp) {
+        this.clientIp = clientIp;
     }
 
     public String getGovName() {
@@ -223,6 +237,7 @@ public class Complaint  implements Serializable {
                  "\n, category=" + category +
                  "\n, complaintAuthor=" + complaintAuthor +
                  "\n, httpSessionId='" + httpSessionId + '\'' +
+                 "\n, clientIp='" + clientIp + '\'' +
                  "\n, govName='" + govName + '\'' +
                  "\n, firstName='" + firstName + '\'' +
                  "\n, lastName='" + lastName + '\'' +
