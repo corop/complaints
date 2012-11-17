@@ -99,8 +99,6 @@ public class ComplaintsController {
             complaint.setAppeal(message.getAppeal());
             complaint.setHttpSessionId(sessionId);
             complaint.setClientIp(getRemoteAddress());
-            //complaint.setInserted(new Date());
-            // complaint.setSended(0L);
             complaintService.add(complaint);
             return  new StatusResponse(true, "Ваша жалоба поставлена в очередь на обработку");
         } catch (Exception e) {
